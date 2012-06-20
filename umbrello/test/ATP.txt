@@ -1,0 +1,646 @@
+ ============================
+| Application Test Procedure |  (last updated: 2011-07-31 by Andi Fischer)
+ ============================
+
+===============================================================================
+Instructions
+===============================================================================
+ 1) Make a copy of this file.
+ 2) Open this copy in an editor.
+ 3) Enter the test data.
+ 4) Do the tests (part of it or all) and enter the result into this file.
+
+
+===============================================================================
+Test data
+===============================================================================
+Name of tester:
+Date:
+OS Version:
+Qt Version:
+KDE Version:
+
+
+===============================================================================
+Start, stop, and command line (SSC)
+===============================================================================
+
+-------------------------------------------------------------------------------
+SSC01 - Start application:                                       OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+  1) Start application in a konsole
+        $ umbrello
+     or from the desktop control center in Applications - Development - Umbrello.
+Testresult:
+  1) Application main window is visible.
+  2) All icons are set and visible.
+  3) In menu Code - Active Language all programming languages are listed.
+
+-------------------------------------------------------------------------------
+SSC02 - Position on screen:                                      OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+  1) Start application.
+  2) Move window to another location on the screen.
+  3) Stop application (File - Quit or Close Window).
+  4) Start application again.
+Testresult:
+  1) Verify that application comes up at the last screen position.
+
+-------------------------------------------------------------------------------
+SSC03 - Size of window:                                          OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+  1) Start application.
+  2) Resize application to the minimum size in width and height.
+  3) Stop application.
+  4) Start application again.
+  5) Do the same again with a user defined window size.
+  6) Do the same again by changing only width or height.
+Testresult:
+  1) Verify that application comes up again with the minimum width and height.
+  2) Verify that application comes up again with the user defined size.
+
+-------------------------------------------------------------------------------
+SSC04 - Layout of docks:                                         OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+  1) Start application.
+  2) Attach Tree View dock to the left side, Documentation dock to the right
+     side, and hide any other dock (Command history).
+  3) Drag the separation between the diagram area and the Documentation dock
+     to the right. The Documentation dock is now at its minimum width.
+  4) Stop application.
+  5) Start application again.
+  6) Activate the Command history dock over the popup menu and undock it.
+  7) Move the Command history dock window at a desired position.
+  8) Resize the Command history dock window to a desired size.
+  9) Stop application.
+ 10) Start application again.
+Testresult:
+  1) Verify that the adjusted dock layout comes up again.
+
+-------------------------------------------------------------------------------
+SSC05 - Popupmenu of docks:                                      OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+
+Testresult:
+
+-------------------------------------------------------------------------------
+SSC06 - Layout of toolbars:                                      OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+
+Testresult:
+
+-------------------------------------------------------------------------------
+SSC07 - Configured toolbar:                                      OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+
+Testresult:
+
+-------------------------------------------------------------------------------
+SSC08 - Menu open recent:                                        OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+
+Testresult:
+
+-------------------------------------------------------------------------------
+SSC09 - Status bar:                                              OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+
+Testresult:
+
+-------------------------------------------------------------------------------
+SSC10 - Command line:                                            OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+
+  --export
+
+  umbrello [-e png] [filename.xmi]
+  umbrello [-e eps] [filename.xmi]
+
+  umbrello --version
+
+Testresult:
+
+-------------------------------------------------------------------------------
+SSC11 - Stop applicaton:                                         OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+  1) Start application in a konsole.
+  2) Load model "./umbrello/models/UmbrelloArchitecture/Overview.xmi".
+  3) Verify the successfull loading of the model.
+  4) Stop application from menu File - Quit.
+  5) Do the same by clicking on the Window Close icon.
+Testresult:
+  1) The application is closed without any error message.
+
+===============================================================================
+Menu commands File (MEF)
+===============================================================================
+
+
+===============================================================================
+Menu commands Edit (MEE)
+===============================================================================
+
+
+===============================================================================
+Menu commands Diagram (MED)
+===============================================================================
+
+-------------------------------------------------------------------------------
+MED01 - "New":                                                   OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+MED02 - "Clear Diagram":                                         OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+MED03 - "Delete":                                                OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+MED04 - "Export as Picture...":                                  OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+  1) Load model "./umbrello/models/UmbrelloArchitecture/Overview.xmi".
+  2) Activate the tab "WidgetBase Hierarchy".
+  3) Open the menu 'Diagram' and select 'Export as Picture...'.
+  4) In the now opened file dialog select the place where the picture should be
+     stored.
+  5) Set the filter to 'Windows BMP image'.
+  6) Press 'Save' button.
+  7) Set the filter to 'EPS image'.
+  8) Press 'Save' button.
+  9) Set the filter to 'JPG image'.
+ 10) Press 'Save' button.
+ 11) Set the filter to 'PNG image'.
+ 12) Press 'Save' button.
+ 12) Set the filter to 'PPM image'.
+ 14) Press 'Save' button.
+ 15) Set the filter to 'SVG image'.
+ 16) Press 'Save' button.
+ 17) Set the filter to 'XBM image'.
+ 18) Press 'Save' button.
+ 19) Set the filter to 'XPM image'.
+ 20) Press 'Save' button.
+Testresult:
+  1) Open Gwenview (or any other similar picture viewer).
+  2) Open "WidgetBase Hierarchy.bmp" from the selected directory and
+     verify the correct format of the picture.
+  3) Open "WidgetBase Hierarchy.epsf" from the selected directory and
+     verify the correct format of the picture.
+  4) Open "WidgetBase Hierarchy.jbg" from the selected directory and
+     verify the correct format of the picture.
+  5) Open "WidgetBase Hierarchy.png" from the selected directory and
+     verify the correct format of the picture.
+  6) Open "WidgetBase Hierarchy.ppm" from the selected directory and
+     verify the correct format of the picture.
+  7) Open "WidgetBase Hierarchy.svg" from the selected directory and
+     verify the correct format of the picture.
+  8) Open "WidgetBase Hierarchy.xbm" from the selected directory and
+     verify the correct format of the picture.
+  9) Open "WidgetBase Hierarchy.xpm" from the selected directory and
+     verify the correct format of the picture.
+
+-------------------------------------------------------------------------------
+MED05 - "Export All Diagrmas as Pictures...":                    OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+  1) Load model "./umbrello/models/UmbrelloArchitecture/Overview.xmi".
+  2) Open the menu 'Diagram' and select 'Export All Diagrams as Pictures...'.
+  3) In the now opened file dialog select the place where the pictures should
+     be stored.
+  4) Set the filter to one out of ['Windows BMP image', 'EPS image',
+     'JPG image', 'PNG image', 'PPM image', 'SVG image', 'XBM image',
+     'XPM image'].
+  5) Unselect 'Use folders'.
+  6) Press 'OK' button.
+Testresult:
+  1) Open Gwenview (or any other similar picture viewer).
+  2) Open all the pictures from the selected directory and
+     verify the correct format of each picture.
+  3) Verify that all diagrams where exported.
+
+-------------------------------------------------------------------------------
+MED06 - "Show":                                                  OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+MED07 - "Zoom":                                                  OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+MED08 - "Align":                                                 OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+MED09 - "Snap to Grid":                                          OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+MED10 - "Show Grid":                                             OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+MED11 - "Properties":                                            OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+===============================================================================
+Menu commands Code (MEC)
+===============================================================================
+
+
+===============================================================================
+Menu commands Settings (MES)
+===============================================================================
+
+
+===============================================================================
+Menu commands Help (MEH)
+===============================================================================
+
+
+===============================================================================
+Toolbar popup menu (TPM)
+===============================================================================
+
+
+===============================================================================
+Main toolbar (MTB)
+===============================================================================
+
+
+===============================================================================
+Diagram toolbar (DTB)
+===============================================================================
+
+
+===============================================================================
+Tree view dock window (TDW)
+===============================================================================
+
+===============================================================================
+Documentation dock window (DDW)
+===============================================================================
+
+===============================================================================
+Command history dock window (CDW)
+===============================================================================
+
+===============================================================================
+Code importing (COI)
+===============================================================================
+
+-------------------------------------------------------------------------------
+COI01 - Code importing wizard:                                   OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+  1) Open the code importing wizard. Verify that the tree is expanded to the
+     current directory or the last selected in a former import with the wizard.
+  2) 
+Testresult:
+  1) The code import wizard allows to select one or several files from
+     different directories.
+  2) The code import wizard allows to select all files from one directory.
+  3) The code import wizard allows to select all files from a subtree.
+
+-------------------------------------------------------------------------------
+COI02 - Code import ActionScript:                                OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COI03 - Code import Ada:                                         OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COI04 - Code import C++:                                         OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COI05 - Code import C#:                                          OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COI06 - Code import D:                                           OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COI07 - Code import IDL:                                         OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COI08 - Code import Java:                                        OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+  1) Download a java project, e.g. LAoE
+     information at http://www.oli4.ch/laoe/home.html
+     source code at http://sourceforge.net/projects/laoe/
+  2) Import all or only some single files.
+Testresult:
+  1) The code is parsed and imported as expected.
+  2) All classes are found.
+  3) All methods are found with the right parameters.
+  4) All attributes are found.
+
+-------------------------------------------------------------------------------
+COI09 - Code import JavaScript:                                  OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COI10 - Code import MySQL:                                       OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COI11 - Code import Pascal:                                      OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COI12 - Code import Perl:                                        OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COI13 - Code import PHP:                                         OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COI01 - Code import PHP5:                                        OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COI15 - Code import PostgreSQL:                                  OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COI16 - Code import Python:                                      OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+  1) Download a python project, e.g. eric5
+     information at http://eric-ide.python-projects.org/
+     source code at http://sourceforge.net/projects/eric-ide/files/eric5/stable/
+  2) Import all or only some single files.
+Testresult:
+  1) The code is parsed and imported as expected.
+  2) All classes are found.
+  3) All methods are found with the right parameters.
+  4) All attributes are found.
+
+-------------------------------------------------------------------------------
+COI17 - Code import Ruby:                                        OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COI18 - Code import TCL:                                         OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COI19 - Code import XMLSchema:                                   OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+===============================================================================
+Diagram drawing common (DDR)
+===============================================================================
+
+===============================================================================
+Drawing class diagram (DCL)
+===============================================================================
+
+-------------------------------------------------------------------------------
+DCL01 - Create class diagram:                                    OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+  1) Click on the button left to the first tab view and select class diagram
+     in the popupmenu.
+    OR
+     Select the menu 'Diagram' - 'New' - 'Class Diagram...'.
+  2) In the just opened dialog enter the name "Car Class Diagram".
+  3) Select from the diagram toolbar the class drawing tool.
+  4) Draw a class and name it "Car".
+  5) Select the menu 'File' - 'Save As...' and save the current work in
+     the file "test.xmi" in a location of your choice.
+  6) Draw a class and name it "Engine".
+  7) Draw a class and name it "Tire".
+  8) Select from the diagram toolbar the aggregation drawing tool.
+  9) Click on "Car" and drag to "Engine".
+ 10) Click on "Car" and drag to "Tire".
+ 11) Click on the save button in the main toolbar.
+Testresult:
+  1) A simple class diagram with three classes is created.
+
+-------------------------------------------------------------------------------
+DCL02 - Load existing class diagram:                             OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+  1) Load file "./umbrello/test/test-DCL.xmi".
+  2) Load your file "test.xmi"
+Testresult:
+  1) The file is loading correctly.
+  2) The file is loading correctly.
+
+-------------------------------------------------------------------------------
+DCL03 - Add attributes to classes:                               OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+
+Testresult:
+
+-------------------------------------------------------------------------------
+DCL04 - Add operations to classes:                               OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+
+Testresult:
+
+===============================================================================
+Drawing sequence diagram (DSQ)
+===============================================================================
+
+===============================================================================
+Drawing collaboration diagram (DCO)
+===============================================================================
+
+===============================================================================
+Drawing use case diagram (DUC)
+===============================================================================
+
+===============================================================================
+Drawing state diagram (DST)
+===============================================================================
+
+===============================================================================
+Drawing activity diagram (DAC)
+===============================================================================
+
+===============================================================================
+Drawing component diagram (DCP)
+===============================================================================
+
+===============================================================================
+Drawing deployment diagram (DDP)
+===============================================================================
+
+===============================================================================
+Drawing entity relationship diagram (DER) 
+===============================================================================
+
+
+===============================================================================
+Code generation (COG)
+===============================================================================
+
+-------------------------------------------------------------------------------
+COG01 - Code generated in ActionScript:                          OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+  1) Load file "./umbrello/test/test-COG.xmi".
+  2) Select the menu Code - Code Generation Wizard.
+  3) Verify that all classes are in the Class Selected list of the Selected
+     Classes page. Press Next.
+  4) Set the language in the Code Generation Option Page to ActionScript.
+     Press Next.
+  5) Press the button Generate and verify that the status of each class changes
+     to Code Generated. Press Finish.
+Testresult:
+  1) The selected files are present in the expected location.
+  2) Each file contains the expected code of the modeled class.
+
+-------------------------------------------------------------------------------
+COG02 - Code generated in Ada:                                   OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG03 - Code generated in C++:                                   OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG04 - Code generated in C#:                                    OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG05 - Code generated in D:                                     OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG06 - Code generated in IDL:                                   OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG07 - Code generated in Java:                                  OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG08 - Code generated in JavaScript:                            OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG09 - Code generated in MySQL:                                 OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG10 - Code generated in Pascal:                                OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG11 - Code generated in Perl:                                  OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG12 - Code generated in PHP:                                   OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG13 - Code generated in PHP5:                                  OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG14 - Code generated in PostgreSQL:                            OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG15 - Code generated in Python:                                OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG16 - Code generated in Ruby:                                  OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG17 - Code generated in Vala:                                  OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG18 - Code generated in TCL:                                   OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+COG19 - Code generated in XMLSchema:                             OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+
+===============================================================================
+Refactoring Assistant (RFA)
+===============================================================================
+
+-------------------------------------------------------------------------------
+RFA01 - Refactor class:                                          OK[ ]   NOK[ ]
+-------------------------------------------------------------------------------
+Testprocedure:
+  1) Load file "./umbrello/test/test-RFA.xmi".
+  2) Select Refactor from the popup menu over the class ClassB.
+  3) .
+  4) .
+  5) .
+Testresult:
+  1) .
+  2) .
+
+===============================================================================
+Printing (PRI)
+===============================================================================
+
+===============================================================================
+Picture export (PEX)
+===============================================================================
+
+===============================================================================
+Settings (SET)
+===============================================================================
+
+===============================================================================
+Check Krazy output (KRZ)
+===============================================================================
+- checks
+- API documentation
+
+###############################################################################
+
+===============================================================================
+Summary / Statistics
+===============================================================================
+
+Total number of tests:              0
+                             ==========
+
+        Tests with OK:              0
+       Tests with NOK:              0
+  Not performed tests:              0
+                             ----------
+                                    0
+                             ==========
+
+
+Summary / State of application:
+-------------------------------
+
+
+
+
+

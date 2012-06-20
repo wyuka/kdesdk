@@ -1,0 +1,11 @@
+[Protocol]
+exec=kio_perldoc
+protocol=perldoc
+input=none
+output=filesystem
+defaultMimetype=text/html
+Class=:local
+reading=true
+listing=Name
+determineMimetypeFromExtension=false
+Icon=application-x-perl

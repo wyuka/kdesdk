@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48px"
+   height="48px"
+   id="svg1930"
+   sodipodi:version="0.32"
+   inkscape:version="0.44.1"
+   sodipodi:docbase="/home/kde-devel/kde/src/KDE/kdesdk/umbrello/umbrello/pics/sources"
+   sodipodi:docname="category.svg">
+  <defs
+     id="defs1932" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7"
+     inkscape:cx="24"
+     inkscape:cy="24"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:grid-bbox="true"
+     inkscape:document-units="px"
+     inkscape:window-width="902"
+     inkscape:window-height="583"
+     inkscape:window-x="0"
+     inkscape:window-y="105" />
+  <metadata
+     id="metadata1935">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <path
+       sodipodi:type="arc"
+       style="fill:yellow;fill-opacity:1;fill-rule:evenodd;stroke:red;stroke-width:6.55090475;stroke-dasharray:none;stroke-opacity:1"
+       id="path863"
+       sodipodi:cx="63.4375"
+       sodipodi:cy="39.375"
+       sodipodi:rx="31.25"
+       sodipodi:ry="31.5625"
+       d="M 94.6875 39.375 A 31.25 31.5625 0 1 1  32.1875,39.375 A 31.25 31.5625 0 1 1  94.6875 39.375 z"
+       transform="matrix(0.257743,0,0,0.228556,0.119829,7.473148)"
+       inkscape:export-filename="/home/kde-devel/kde/src/KDE/kdesdk/umbrello/umbrello/pics/category.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:red;fill-rule:evenodd;stroke:red;stroke-width:1.75128698;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 16.470176,2.3391041 C 16.470176,9.8105948 16.470176,9.8105948 16.470176,9.8105948 L 16.470176,9.8105948"
+       id="path2823"
+       inkscape:export-filename="/home/kde-devel/kde/src/KDE/kdesdk/umbrello/umbrello/pics/category.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:red;fill-rule:evenodd;stroke:red;stroke-width:1.79869914;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 11.270042,21.334798 L 5.9003429,26.756832 L 5.9568665,26.700938"
+       id="path3714"
+       inkscape:export-filename="/home/kde-devel/kde/src/KDE/kdesdk/umbrello/umbrello/pics/category.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:red;fill-rule:evenodd;stroke:red;stroke-width:2.02780581;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 21.050699,21.895895 L 26.190016,26.81061 L 26.190016,26.81061"
+       id="path4609"
+       inkscape:export-filename="/home/kde-devel/kde/src/KDE/kdesdk/umbrello/umbrello/pics/category.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>

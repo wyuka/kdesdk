@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile name="cervisiapartrc" />
+  <group name="Colors" >
+    <entry name="DiffChangeColor" key="DiffChange" type="Color">
+      <default>#edbebe</default>
+    </entry>
+    <entry name="DiffDeleteColor" key="DiffDelete" type="Color">
+      <default>#beedbe</default>
+    </entry>
+    <entry name="DiffInsertColor" key="DiffInsert" type="Color">
+      <default>#bebeed</default>
+    </entry>
+    <entry name="LocalChangeColor" key="LocalChange" type="Color">
+      <default>#8282ff</default>
+    </entry>
+    <entry name="RemoteChangeColor" key="RemoteChange" type="Color">
+      <default>#46d246</default>
+    </entry>
+    <entry name="ConflictColor" key="Conflict" type="Color">
+      <label>The foreground color used to highlight files with a conflict in the file view.</label>
+      <default>#ff8282</default>
+    </entry>
+    <entry name="NotInCvsColor" key="NotInCvsColor" type="Color">
+      <default code="true">KColorScheme(QPalette::Active, KColorScheme::View).foreground().color()</default>
+    </entry>
+  </group>
+  <group name="LookAndFeel">
+    <entry name="ProtocolFont" type="Font">
+    </entry>
+    <entry name="AnnotateFont" type="Font">
+      <default code="true">KGlobalSettings::fixedFont()</default>
+    </entry>
+    <entry name="DiffFont" type="Font">
+      <default code="true">KGlobalSettings::fixedFont()</default>
+    </entry>
+    <entry name="ChangeLogFont" type="Font">
+      <default code="true">KGlobalSettings::fixedFont()</default>
+    </entry>
+  </group>
+  <group name="General" >
+    <entry key="Timeout" type="UInt">
+      <label>Delay (ms) until the progress dialog appears.</label>
+      <default>4000</default>
+    </entry>
+  </group>
+  <group name="CheckoutDialog">
+    <entry name="Repository" type="String"></entry>
+    <entry name="Module" type="String"></entry>
+    <entry name="WorkingFolder" key="Working directory" type="Path"></entry>
+  </group>
+</kcfg>

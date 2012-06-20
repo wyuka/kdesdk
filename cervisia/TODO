@@ -1,0 +1,26 @@
+Ideas in no special order
+
+* Per-repository settings like enabling of
+  watch/edit/lock features
+
+* Log dialog option: Show only tagged revisions
+
+* Log dialog option: Show only your revisions
+
+* Log dialog: Allow to select latest on branch
+
+* Multi Log view
+
+* Implement "Add to .cvsignore"
+
+* cvs init
+
+* Implement a nice workaround for $CVSROOT/CVSROOT/cvsignore
+
+* Maybe use ui files for dialogs
+
+* Watch open working copy directory for changes (KDirWatcher)
+
+* Automatic 'cvs -n update' in specified time intervals (QTimer)
+
+* Add commit message to ChangeLog file (checkbox in commit dialog)

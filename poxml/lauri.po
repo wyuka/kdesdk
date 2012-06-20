@@ -1,0 +1,448 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2001-02-09 01:25+0100\n"
+"PO-Revision-Date: 2001-07-02 20:31MET\n"
+"Last-Translator: Stephan Kulow <coolo@kde.org>\n"
+"Language-Team: german <kde-i18n-de@kde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 0.9.2\n"
+
+#. Tag: !ENTITY
+#: lauri.xml:3
+#, no-c-format
+msgid "<!ENTITY i18n-file-quit \"<menuchoice><shortcut><keycombo action='simul'>&Ctrl;<keycap>Q</keycap></keycombo></shortcut><guimenu>File</guimenu><guimenuitem>Quit</guimenuitem></menuchoice>\">"
+msgstr "<!ENTITY i18n-file-quit \"<menuchoice><shortcut><keycombo action='simul'>&Ctrl;<keycap>Q</keycap></keycombo></shortcut><guimenu>Datei</guimenu><guimenuitem>Beenden</guimenuitem></menuchoice>\">"
+
+#. Tag: title
+#: lauri.xml:16
+#, no-c-format
+msgid "test document"
+msgstr "Testtext"
+
+#. Tag: author
+#: lauri.xml:17
+#, no-c-format
+msgid "<firstname>Stephan</firstname><surname>Kulow</surname>"
+msgstr "<firstname>Stephan</firstname><surname>Kulow</surname>"
+
+#. Tag: para
+#: lauri.xml:19
+#, no-c-format
+msgid "This is nonsense"
+msgstr "Dies ist Schwachsinn"
+
+#. Tag: keyword
+#: lauri.xml:20
+#, no-c-format
+msgid "<keyword>KDE</keyword>"
+msgstr "<keyword>KDE.de</keyword>"
+
+#. Tag: title
+#: lauri.xml:25
+#, no-c-format
+msgid "&quot;Text&quot; for &lauri;"
+msgstr "&quot;Text&quot; für &lauri;"
+
+#. Tag: title
+#: lauri.xml:27
+#, no-c-format
+msgid "Section 1"
+msgstr "Abschnitt 1"
+
+#. Tag: title
+#: lauri.xml:29
+#, no-c-format
+msgid "Section 1.1"
+msgstr "Abschnitt 1.1"
+
+#. Tag: para
+#: lauri.xml:31
+#, no-c-format
+msgid ""
+"<emphasis><emphasis role=\"blah\">Warum kann ich meinem Rechner nicht "
+"einfach ausschalten?</emphasis></emphasis>Hier noch"
+msgstr ""
+"<emphasis><emphasis role=\"blah\">Warum kann ich meinem Rechner nicht "
+"einfach ausschalten?</emphasis></emphasis>Hier noch"
+
+#. Tag: para
+#: lauri.xml:34
+#, no-c-format
+msgid "<application>me</application> can't be turned off."
+msgstr "Das <application>me</application> kann nicht ausgemacht werden."
+
+#. Tag: para
+#: lauri.xml:36
+#, no-c-format
+msgid "Leading &quot;Text&quot; for &lauri;"
+msgstr "&quot;Starttext&quot; f&uuml;r &lauri;"
+
+#. Tag: para
+#: lauri.xml:39
+#, no-c-format
+msgid ""
+"we pretend her name was Höpfner, but that <anchor id=\"help\"/> is a good "
+"name too"
+msgstr ""
+"sagen wir mal sie heisst Höpfner, aber <anchor id=\"help\"/> ist auch gut"
+
+#. Tag: para
+#: lauri.xml:39
+#, no-c-format
+msgid "<keycap> Shift </keycap> <keycap> help </keycap>"
+msgstr "<keycap> Schieber </keycap> <keycap> Hilfe </keycap>"
+
+#. Tag: primary
+#: lauri.xml:45
+#, no-c-format
+msgid "<primary>kde</primary>"
+msgstr "<primary>kde.de</primary>"
+
+#. Tag: para
+#: lauri.xml:46
+#, no-c-format
+msgid ""
+"an archive of the developer's mailing list is at <ulink url=\"http://lists."
+"kde.org/?l=kde-kmail&amp;r=1&amp;w=2\">lists.kde.org</ulink>."
+msgstr ""
+"Es gibt ein Archiv <ulink url=\"http://lists.kde.org/?l=kde-kmail&amp;"
+"r=1&amp;w=2\">lists.kde.org</ulink>."
+
+#. Tag: trans_comment
+#: lauri.xml:51
+#, no-c-format
+msgid "GIVE_ME_CREDIT"
+msgstr "<para>Habe ich gemacht - toll ne?</para>"
+
+#. Tag: term
+#: lauri.xml:56
+#, no-c-format
+msgid "Text 1"
+msgstr "Schrift 1"
+
+#. Tag: para
+#: lauri.xml:60
+#, no-c-format
+msgid "Text 2"
+msgstr "Schrift 2"
+
+#. Tag: para
+#: lauri.xml:63
+#, no-c-format
+msgid "Text 3 \"everything\""
+msgstr "Text 3 \"alles\""
+
+#. Tag: term
+#: lauri.xml:65
+#, no-c-format
+msgid "Everything"
+msgstr "Alles"
+
+#. Tag: para
+#: lauri.xml:65
+#, no-c-format
+msgid "Is correct"
+msgstr "Ist klar"
+
+#. Tag: term
+#: lauri.xml:66
+#, no-c-format
+msgid "Nothing"
+msgstr "Nichts"
+
+#. Tag: para
+#: lauri.xml:66
+#, no-c-format
+msgid "Is wrong"
+msgstr "ist falsch"
+
+#. Tag: para
+#: lauri.xml:68
+#, no-c-format
+msgid "Text 4 \\\"even more\\\""
+msgstr "Text 4 \\\"noch mehr\\\""
+
+#. Tag: para
+#: lauri.xml:73
+#, no-c-format
+msgid "Text 4 \\\"even less\\\""
+msgstr "Text 4 \\\"noch weniger\\\""
+
+#. Tag: menuchoice
+#: lauri.xml:85
+#, no-c-format
+msgid ""
+"<shortcut><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></"
+"shortcut> <guimenu><accel>F</accel>ile</guimenu><guimenuitem><accel>N</"
+"accel>ew</guimenuitem>"
+msgstr ""
+"<shortcut><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></"
+"shortcut> <guimenu><accel>D</accel>atei</guimenu><guimenuitem><accel>N</"
+"accel>eu</guimenuitem>"
+
+#. Tag: action
+#: lauri.xml:88
+#, no-c-format
+msgid "This starts a new Document in a new instance of the editor."
+msgstr "Dies macht alles neu."
+
+#. Tag: title
+#: lauri.xml:96
+#, no-c-format
+msgid "What XML looks like"
+msgstr "Wie XML aussieht"
+
+#. Tag: para
+#: lauri.xml:98
+#, no-c-format
+msgid ""
+"Here is an example of an XML file used by <application>Columbo</application> "
+"to describe a search site on the Internet:"
+msgstr "Dies ist <application>Columbo</application>:"
+
+#. Tag: programlisting
+#: lauri.xml:110
+#, no-c-format
+msgid ""
+"<![CDATA[<!DOCTYPE search>\n"
+"<search \n"
+"   name=\"Altavista\" \n"
+"   channel=\"web\"\n"
+"   method=\"get\"\n"
+"   action=\"http://www.altavista.com/cgi-bin/query\"\n"
+">\n"
+"\n"
+"   <input name=\"pg\" value=\"q\"/>\n"
+"   <input name=\"sc\" value=\"on\"/>\n"
+"   <input name=\"hl\" value=\"on\"/>\n"
+"   <input name=\"kl\" value=\"XX\"/>\n"
+"   <input name=\"stype\" value=\"stext\"/>\n"
+"   <input name=\"q\" user=\"true\"/>\n"
+"\n"
+"   <interpret\n"
+"      resultListStart=\"&lt;dl&gt;\"\n"
+"      resultItemStart=\"&lt;dt&gt;\"\n"
+"      relevanceStart=\"\"\n"
+"      resultListEnd=\"&lt;/td&gt;\"\n"
+"      resultItemEnd=\"&lt;/dl&gt;\"\n"
+"      relevanceEnd=\"\"\n"
+"   />\n"
+"</search>]]>"
+msgstr ""
+"\n"
+"<![CDATA[<!DOCTYPE search>\n"
+"<search \n"
+"   name=\"Altawista\" \n"
+"   channel=\"Netz\"\n"
+"   method=\"krieg\"\n"
+"   action=\"http://www.altawista.com/cgi-bin/query\"\n"
+">\n"
+"\n"
+"   <input name=\"pg\" value=\"q\"/>\n"
+"   <input name=\"sc\" value=\"on\"/>\n"
+"   <input name=\"hl\" value=\"on\"/>\n"
+"   <input name=\"kl\" value=\"XX\"/>\n"
+"   <input name=\"stype\" value=\"stext\"/>\n"
+"   <input name=\"q\" user=\"wahr\"/>\n"
+"\n"
+"   <interpret\n"
+"      resultListAnfang=\"&lt;dl&gt;\"\n"
+"      resultItemAnfang=\"&lt;dt&gt;\"\n"
+"      relevanceAnfang=\"\"\n"
+"      resultListEnde=\"&lt;/td&gt;\"\n"
+"      resultItemEnd=\"&lt;/dl&gt;\"\n"
+"      relevanceEnd=\"\"\n"
+"   />\n"
+"</search>]]>"
+
+#. Tag: para
+#: lauri.xml:113
+#, no-c-format
+msgid ""
+"This instruction is normally used to declare the DTD of the document. Here "
+"no DTD is used, and only the name of the root element (<varname>search</"
+"varname>) appears."
+msgstr "Das ist normalerweise DTD"
+
+#. Tag: para
+#: lauri.xml:120
+#, no-c-format
+msgid ""
+"<sgmltag class=\"starttag\">search</sgmltag> begins the root element. Here, "
+"it extends to the end of the document (<sgmltag class=\"endtag\">search</"
+"sgmltag>)."
+msgstr ""
+"<sgmltag class=\"starttag\">search</sgmltag> begins the root element. Here, "
+"it extends to the end of the document (<sgmltag class=\"endtag\">search</"
+"sgmltag>)."
+
+#. Tag: para
+#: lauri.xml:127
+#, no-c-format
+msgid ""
+"This is an example of an empty element. Empty elements do not need a closing "
+"tag (which would be <varname>&lt;/input&gt;</varname> in this case)."
+msgstr ""
+"This is an example of an empty element. Empty elements do not need a closing "
+"tag (which would be <varname>&lt;/input&gt;</varname> in this case)."
+
+#. Tag: title
+#: lauri.xml:139
+#, no-c-format
+msgid "The ugly part"
+msgstr "Der schlimme Teil"
+
+#. Tag: para
+#: lauri.xml:140
+#, no-c-format
+msgid "Ending Text:"
+msgstr "Ende:"
+
+#. Tag: literallayout
+#: lauri.xml:143
+#, no-c-format
+msgid ""
+"Matthias Hoelzer\n"
+"KDE-Verein i.G.\n"
+"Account-Nr. 2798296\n"
+"\n"
+"Staedtische Sparkasse Wuerzburg\n"
+"Hofstrasse 9\n"
+"97070 Wuerzburg\n"
+"Germany\n"
+"BLZ 790 500 00\n"
+"SWIFT-Address: BYLA DE 77\n"
+"\n"
+"print \"$b4 /path/to/KDE/libs/libpng.a $af\\n\"; \\\n"
+"you see it here\n"
+"whereever"
+msgstr ""
+"\n"
+"Matthias Hoelzer\n"
+"KDE-Verein i.G.\n"
+"Account-Nr. 2798296\n"
+"\n"
+"FrankenSWIFT-Address: BYLA DE 77\n"
+"hallo Du"
+
+#. Tag: screen
+#: lauri.xml:146
+#, no-c-format
+msgid ""
+"Expect       ogin:           <lineannotation># remember, we do ordinary "
+"terminal login</lineannotation>\n"
+"ID           \"\"              <lineannotation># kppp sends the id you "
+"configured in the main dialog</lineannotation>\n"
+"Expect       for userxyz:    <lineannotation># a list of available numbers "
+"is shown, the user should choose one</lineannotation> \n"
+"Send         userxyz-home    <lineannotation># the user wants to be called "
+"back on their home number</lineannotation>\n"
+"Expect       ogin:           <lineannotation># The callback process is now "
+"running, a new connection, and so a new login.</lineannotation>\n"
+"ID\n"
+"Expect       assword:        <lineannotation># Now send your password</"
+"lineannotation>\n"
+"Expect       &gt;               <lineannotation># Wait for the command "
+"prompt (the prompt may vary)</lineannotation>\n"
+"Send         start_ppp       <lineannotation># this command starts the pppd</"
+"lineannotation>"
+msgstr ""
+"\n"
+"Expect       ogin:           <lineannotation># Dies ist alles nicht so "
+"schlimm!</lineannotation>\n"
+"ID           \"\"              <lineannotation># kppp sends the id you "
+"configured in the main dialog</lineannotation>\n"
+"Expect       for userxyz:    <lineannotation># a list of available numbers "
+"is shown, the user should choose one</lineannotation> \n"
+"Send         userxyz-home    <lineannotation># the user wants to be called "
+"back on their home number</lineannotation>\n"
+"Expect       ogin:           <lineannotation># The callback process is now "
+"running, a new connection, and so a new login.</lineannotation>\n"
+"ID\n"
+"Expect       assword:        <lineannotation># Now send your password</"
+"lineannotation>\n"
+"Expect       &gt;               <lineannotation># Wait for the command "
+"prompt (the prompt may vary)</lineannotation>\n"
+"Send         start_ppp       <lineannotation># this command starts the pppd</"
+"lineannotation>"
+
+#. Tag: screen
+#: lauri.xml:150
+#, no-c-format
+msgid ""
+"Send                         <lineannotation># send an empty string</"
+"lineannotation>\n"
+"Expect           ID:\n"
+"Send             itsme\n"
+"Expect           word:\n"
+"Send             forgot\n"
+"Expect           granted\n"
+"Send             ppp"
+msgstr ""
+"\n"
+"Send                         <lineannotation># send einen leerenstring</"
+"lineannotation>\n"
+"Expect           ID:\n"
+"Send             ichbins\n"
+"Expect           word:\n"
+"Send             forgot\n"
+"Expect           granted\n"
+"Send             ppp"
+
+#. Tag: programlisting
+#: lauri.xml:152
+#, no-c-format
+msgid ""
+"-&gt;  #include &lt;qpixmap.h&gt;\n"
+"-&gt;  #include &lt;qpen.h&gt;\n"
+"\n"
+"     class KScribbleDoc\n"
+"     {\n"
+"\n"
+"-&gt;   protected:\n"
+"\n"
+"-&gt;       QPen currentPen(){ return pen;};   \n"
+"                \n"
+"-&gt;       int penWidth()\n"
+"-&gt;          { return pen.width(); }\n"
+"\n"
+"      public slots:\n"
+"         void updateAllViews(KScribbleView *sender);\n"
+"        \n"
+"      protected:\n"
+"        \n"
+"-&gt;      QPixmap buffer;\n"
+"        \n"
+"      private:\n"
+"-&gt;      QPen pen;\n"
+"        /** the modified flag of the current document */\n"
+"        bool modified;"
+msgstr ""
+"\n"
+"-&gt;  #include &lt;qpixmap.h&gt;\n"
+"-&gt;  #include &lt;qpen.h&gt;\n"
+"     class KScribbleDoc\n"
+"     {\n"
+"-&gt;   protected:\n"
+"-&gt;       QPen currentPen(){ return pen;};   \n"
+"                \n"
+"-&gt;       int penWidth()\n"
+"-&gt;          { return pen.width(); }\n"
+"      public slots:\n"
+"         void updateAllViews(KScribbleView *sender);\n"
+"        \n"
+"      protected:\n"
+"        \n"
+"-&gt;      QPixmap buffer;\n"
+"        \n"
+"      private:\n"
+"-&gt;      QPen pen;\n"
+"        /** das veraenderte flag of the current document */\n"
+"        bool modified;"

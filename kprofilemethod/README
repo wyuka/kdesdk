@@ -1,0 +1,21 @@
+As the docu in kprofilemethod.h says:
+
+ Those macros help profiling using QTime.
+ They allow to sum up the time taken by a given bit of code
+ in a method called several times.
+ This way one can find out which low-level method used by a high-level
+ method is taking most of its time.
+
+WARNING:
+
+ Please do not commit code that uses kprofilemethod.h
+ Since not everyone has kdesdk installed, it won't build for everyone.
+ This is a tool to be used for a one-time profiling, and then you need
+ to remove all its traces before committing.
+
+TODO:
+
+ KDevelop, XEmacs and vi shortcuts to insert begin/end macros around a block
+ of code (e.g. after selecting it) - this macro would also insert the
+ int variable, and another shortcut for inserting the print macro.
+

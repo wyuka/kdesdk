@@ -1,0 +1,5 @@
+File=cervisiapart.kcfg
+ClassName=CervisiaSettings
+Singleton=true
+Mutators=true
+SourceIncludeFiles=kcolorscheme.h,kglobalsettings.h

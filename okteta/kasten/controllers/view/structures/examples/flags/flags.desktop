@@ -1,0 +1,40 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=flag
+Type=Service
+ServiceTypes=KPluginInfo
+
+Name=Testing bitflags
+Name[ca]=Proves de «bitflags»
+Name[es]=Prueba de indicadores de bits
+Name[it]=Flag di bit di prova
+Name[kk]=Сынақ бит-жалаушалары
+Name[nl]=Bitflags testen
+Name[pt]=Teste de campos de 'bits'
+Name[pt_BR]=Teste de bitflags
+Name[sv]=Testar bitflaggor
+Name[uk]=Тестування бітових прапорців
+Name[x-test]=xxTesting bitflagsxx
+Name[zh_TW]=測試位元旗標
+Comment=A test for bitflags
+Comment[ca]=Una prova per a «bitflags»
+Comment[es]=Una prueba para indicadores de bits
+Comment[it]=Una prova per flag di bit
+Comment[kk]=Бит-жалаушаларыың сынағы
+Comment[nl]=Een test voor bitflags
+Comment[pt]=Um teste para os campos de 'bits'
+Comment[pt_BR]=Um teste para bitflags
+Comment[sv]=En test av bitflaggor
+Comment[uk]=Тест для бітових прапорців
+Comment[x-test]=xxA test for bitflagsxx
+Comment[zh_TW]=位元旗標測試
+
+
+X-KDE-PluginInfo-Author=Alex Richardson
+X-KDE-PluginInfo-Email=alex.richardson@gmx.de
+X-KDE-PluginInfo-Name=flags
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Website=http://www.test.org/
+X-KDE-PluginInfo-Category=structure
+X-KDE-PluginInfo-License=LGPL
+X-KDE-PluginInfo-EnabledByDefault=false

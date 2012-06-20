@@ -1,0 +1,19 @@
+<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
+<kpartgui name="cervisia" version="4">
+<MenuBar>
+  <Menu name="file"><text>&amp;File</text>
+    <Merge/>
+  </Menu>
+  <Menu name="settings"><text>&amp;Settings</text>
+    <DefineGroup name="configure_merge_group" append="configure_merge" />
+    <DefineGroup name="save_merge_group" append="show_merge" />
+  </Menu>
+  <Menu name="help"><text>&amp;Help</text>
+    <Merge/>
+  </Menu>
+  <Merge/>
+</MenuBar>
+<ToolBar name="mainToolBar"><text>Main Toolbar</text>
+</ToolBar>
+<StatusBar/>
+</kpartgui>

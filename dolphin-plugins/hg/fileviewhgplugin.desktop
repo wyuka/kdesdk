@@ -1,0 +1,21 @@
+[Desktop Entry]
+Type=Service
+Name=Mercurial
+Name[ca]=Mercurial
+Name[de]=Mercurial
+Name[es]=Mercurial
+Name[it]=Mercurial
+Name[kk]=Mercurial
+Name[nb]=Mercurial
+Name[nl]=Mercurial
+Name[pa]=ਮਰਕਰੀਅਲ
+Name[pt]=Mercurial
+Name[pt_BR]=Mercurial
+Name[sv]=Mercurial
+Name[uk]=Mercurial
+Name[x-test]=xxMercurialxx
+Name[zh_CN]=Mercurial
+Name[zh_TW]=Mercurial
+X-KDE-ServiceTypes=FileViewVersionControlPlugin,FileViewVersionControlPlugin2
+MimeType=text/plain;
+X-KDE-Library=fileviewhgplugin

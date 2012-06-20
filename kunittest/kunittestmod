@@ -1,0 +1,37 @@
+#!/bin/bash
+
+FOLDER="--folder $PWD"
+QUERY=""
+
+while [ "$#" -gt 0 ]
+do
+    case $1 in
+        -f|--folder)
+            FOLDER="--folder $2"
+            shift
+        ;;
+        -q|--query)
+            QUERY="--query $2"
+            shift
+        ;;
+    esac
+    # to process the next parameter
+    shift
+done
+
+APP=`which kunittestguimodrunner`
+if [ ! -x $APP ]
+then
+    kdialog --error "Sorry, $APP is not a valid executable file."
+    exit 1;
+fi
+
+DEBUGHELPER=`which kunittest_debughelper`
+if [ -z $DEBUGHELPER ]
+then
+    kdialog --error "Sorry, couldn't find the kunittest_debughelper script."
+    exit 3
+fi
+
+DCOPNAME="KUnitTestModRunner"
+$APP --enable-dbgcap $FOLDER $QUERY 2>&1 | perl $DEBUGHELPER "$DCOPNAME-*"

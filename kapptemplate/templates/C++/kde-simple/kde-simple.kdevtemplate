@@ -1,0 +1,40 @@
+# KDE Config File
+[General]
+Name=Minimal C++ KDE
+Name[ca]=C++ KDE mínima
+Name[es]=C++ KDE mínimo
+Name[it]=C++ KDE minimo
+Name[kk]=Минималды C++ KDE
+Name[lt]=Minimalus C++ KDE
+Name[nb]=Minimal C++ KDE
+Name[nl]=Minimale C++ KDE
+Name[pt]=C++ para KDE Mínima
+Name[pt_BR]=C++ para KDE mínima
+Name[sv]=Minimal C++ KDE
+Name[uk]=Мінімальна C++, KDE
+Name[x-test]=xxMinimal C++ KDExx
+Name[zh_CN]=最小 C++ KDE
+Name[zh_TW]=Minimal C++ KDE
+Comment=A very basic KDE GUI Application in C++
+Comment[ca]=Una aplicació IGU del KDE molt bàsica en C++
+Comment[cs]=Úplně základní GUI aplikace KDE v C++
+Comment[de]=Eine sehr einfache KDE-Anwendung mit grafischer Oberfläche in C++
+Comment[es]=Una aplicación en C++ muy básica con interfaz gráfica para KDE
+Comment[it]=Una semplicissima applicazione grafica di KDE in C++
+Comment[kk]=C++ тілдегі өте шектелген KDE GUI қолданбасы
+Comment[nb]=Et svært enkelt KDE GUI-program i C++
+Comment[nl]=Een zeer basale KDE GUI-toepassing in C++
+Comment[pt]=Uma aplicação gráfica muito básica do KDE em C++
+Comment[pt_BR]=Um aplicativo gráfico muito básico do KDE em C++
+Comment[sv]=Ett mycket enkelt KDE-program med grafiskt gränssnitt i C++
+Comment[uk]=Мінімалістична програма з графічним інтерфейсом KDE на C++
+Comment[x-test]=xxA very basic KDE GUI Application in C++xx
+Comment[zh_CN]=非常简单的 C++ KDE GUI 应用程序
+Comment[zh_TW]=最基本的 C++ KDE 圖形介面應用程式
+Category=KDE/Graphical
+Icon=kde-simple.png
+ShowFilesAfterGeneration=%{dest}/src/%{APPNAMELC}.cpp
+
+
+
+-

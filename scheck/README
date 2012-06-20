@@ -1,0 +1,22 @@
+Scheck - An interface style to highlight accel and style guide conflicts
+
+When starting an application with "KDE_LANG=xx application --style check"
+scheck will, for text parts it checks, strip the "xx"s and display the ones
+missing them (missing i18n() calls/.desktop entries) with violet background.
+
+To use it: "program -style check". Yes, there should be a verbose README.
+
+In short:
+
+- Orange shows accel conflicts.
+- Green proposed accels.
+- Dotted red lines show nested groupboxes (not prohibited, but not favored :-).
+- Potential style guide violations are marked with yellow, likely ones with red.
+- Missing colons are drawn with two small red squares.
+- Errors in window titles are marked with "foo|b|ar".
+- Violet background show untranslated string.
+
+Note: Not everything is checked (like list/combo box choices) and
+scheck is error-prone so read HIG[*] and think before you change anything. :-)
+
+*:http://developer.kde.org/documentation/standards/kde/style/basics/index.html

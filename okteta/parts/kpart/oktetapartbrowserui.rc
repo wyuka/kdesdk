@@ -1,0 +1,45 @@
+<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
+<kpartgui name="oktetapartbrowser" version="1">
+
+<MenuBar>
+  <Menu name="file">
+    <Action name="export" /><!--TODO: non-standard, needs group to add to-->
+  </Menu>
+  <Menu name="edit">
+    <Action name="copy_as" /><!--TODO: non-standard, needs group to add to-->
+    <Separator/>
+    <Action name="edit_select_all"/>
+    <Action name="edit_deselect"/>
+    <Action name="edit_select" /><!--TODO: non-standard, needs group to add to-->
+    <Separator/>
+    <Action name="edit_find"/>
+    <Action name="edit_find_next"/>
+    <Action name="edit_find_prev"/>
+    <Separator/>
+    <Action name="goto_offset" /><!--TODO: non-standard, needs group to add to-->
+  </Menu>
+  <Menu name="view">
+    <Separator/>
+    <Action name="view_zoom_in"/>
+    <Action name="view_zoom_out"/>
+    <Separator/>
+    <Action name="view_showsnonprinting" />
+    <Action name="view_lineoffset" />
+    <Action name="togglecolumns" />
+    <Separator/>
+    <Action name="view_valuecoding" />
+    <Action name="view_charencoding" />
+    <Separator/>
+    <Action name="view_bytesperline" />
+    <Action name="view_bytespergroup" />
+    <Action name="resizestyle" />
+    <Action name="viewmode" />
+  </Menu>
+</MenuBar>
+
+<ToolBar name="mainToolBar"><text>Main Toolbar</text>
+  <Action name="view_zoom_in" />
+  <Action name="view_zoom_out" />
+</ToolBar>
+
+</kpartgui>

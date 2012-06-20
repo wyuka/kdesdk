@@ -1,0 +1,92 @@
+#
+Id=kde3.2/20021228
+File=cervisiapartrc,cvsservicerc
+Group=General
+Options=copy
+Key=CVSPath
+Options=copy
+Key=Compression
+#
+Id=kde3.2/20021229
+File=cervisiapartrc,cvsservicerc
+Script=move_repositories.pl,perl
+#
+Id=kde3.2/20030116
+File=cervisiapartrc
+RemoveGroup=Main window
+File=cervisiarc
+RemoveGroup=Main window
+#
+Id=kde3.2/20030117
+File=cervisiapartrc,cervisiarc
+Group=Session
+Key=Current Directory
+#
+Id=kde3.2/20030118
+File=cervisiapartrc
+RemoveGroup=Annotate dialog
+File=cervisiapartrc
+Group=LogList view
+Key=Columns,ColumnOrder
+Key=ColumnSizes,ColumnWidths
+RemoveKey=Customized
+#
+Id=kde3.2/20030205
+File=cervisiapartrc
+Group=Log dialog,LogDialog
+Key=ShowListTab
+RemoveGroup=Log dialog
+#
+Id=kde3.2/20030210
+File=cervisiapartrc
+RemoveGroup=ChangeLog dialog
+#
+Id=kde3.2/20030211
+File=cervisiapartrc
+Group=Diff dialog,DiffDialog
+Key=Sync
+RemoveGroup=Diff dialog
+#
+Id=kde3.2/20030212
+File=cervisiapartrc
+RemoveGroup=Commit dialog
+RemoveGroup=History dialog
+RemoveGroup=Resolve dialog
+RemoveGroup=Resolve edit dialog
+#
+Id=kde3.2/20030216
+File=cervisiapartrc
+RemoveGroup=AddRepository dialog
+RemoveGroup=Repository dialog
+Group=Checkout dialog,CheckoutDialog
+AllKeys
+#
+Id=kde3.2/20030725
+File=cervisiapartrc
+Group=LogDialog
+RemoveKey=ShowListTab
+#
+Id=kde3.2/20030730
+File=cervisiapartrc
+Group=Colors
+Script=change_colors.pl,perl
+#
+Id=kde3.2/20030829
+File=cervisiapartrc
+Group=Communication
+RemoveKey=Editor
+#
+Id=kde3.2/20031014
+File=cervisiapartrc
+Group=General
+RemoveKey=CVSPath
+RemoveKey=Compression
+#
+Id=kde3.4/20041112
+File=cvsservicerc
+Script=cervisia-normalize_cvsroot.pl,perl
+#
+Id=kde3.4/20041207
+File=cervisiapartrc
+Group=Repositories
+Script=cervisia-change_repos_list.pl,perl

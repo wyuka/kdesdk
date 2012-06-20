@@ -1,0 +1,16 @@
+These are palettes for both the Gimp and Xpaint that match the KDE 
+standard color palette. I thought they maybe useful to others designing 
+themes and icons.
+
+INSTALLATION:
+Gimp
+	Copy the file KDE_Gimp to ~/.gimp/palettes/. You can now access the
+	palette by selecting File->Dialogs->Palette.
+XPaint
+	To make the KDE palette the default palette copy kde_xpaintrc to 
+	~/.XPaintrc. Otherwise you can load it by selecting File->
+	Load Palette from the image's file menu.
+
+Daniel M. Duley
+<mosfet@jorsm.com>
+

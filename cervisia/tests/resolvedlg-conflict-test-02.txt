@@ -1,0 +1,9 @@
+Line 1
+Line 2
+<<<<<<< resolvedlg-conflict-test-02.txt
+Line 3 - modified on CONFLICT_BRANCH
+=======
+Line 3 - modified on HEAD
+>>>>>>> 1.2
+Line 4
+Line 5

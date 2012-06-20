@@ -1,0 +1,41 @@
+README for kdesdk
+Licensed BSD
+Copyright Robin Rowe 2008.12.30
+
+Kdesdk includes the following tools:
+
+* cervisia, GUI for CVS
+* kapptemplate, Templates for the easy creation of KDE components
+* kate, The KDE Advanced Text Editor
+* kcachegrind, GUI to profilers such as Valgrind
+* kdesvn-build, automated tool for building KDE
+* kompare, Graphical Difference Tools
+* kstartperf, startup time measurement for KDE apps
+* KUIViewer, display user interface (.ui) files from Qt Designer
+* lokalize, computer-aided i18n translation
+* okteta, hex editor
+* poxml, translates DocBook XML files using gettext po files
+* swappo, reads PO file and reverses direction of translations
+* umbrello, GUI for diagramming Unified Modelling Language (UML)
+
+Building kdesdk...
+
+% cmake .
+% make
+% sudo make install
+
+Note to Ubuntu Users...
+
+If you see this cmake message:
+
+ERROR: cmake/modules/FindKDE4Internal.cmake not found
+
+The solution is:
+
+% sudo apt-get install kdelibs5-dev kdepimlibs5-dev
+
+Contacts...
+
+http://techbase.kde.org/Projects/Release_Team
+
+Matt Rogers <mattr@kde.org>

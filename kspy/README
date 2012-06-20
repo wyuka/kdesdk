@@ -1,0 +1,12 @@
+KSpy
+====
+
+KSpy is a utility intended to help developers examine the internal
+state of a Qt/KDE application. KSpy graphically displays all the
+QObjects in use, and allows you to browse their properties. Using KSpy
+is very simple, include kspy.h and call KSpy::invoke() when you want
+to looks inside your app. The KSpy function is inline and the main
+part of KSpy is dynamically loaded, so you may even want to leave this
+in the release build of an application.
+
+Richard Moore, <rich@kde.org>

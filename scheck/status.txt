@@ -1,0 +1,41 @@
+TODO/BUG: Handle multiline labels, richtext labels.
+
+Capitalization checking:
+
+Title style -- lower case exception list may have to be expanded
+
+window and dialog box titles   - Partially working
+group box / group line labels  - Done// ??? What are group line labels?
+button labels                          - Done.
+tab labels                               - Done.
+listview column headers         - Done
+menu titles / menu items        - Done
+derivatives of KCommand      - Not a  widget.
+combobox items                     - Not sure of what to do with those below yet
+listbox items                          
+tree list items
+other heading/title text           - Hard to distinguish from regular labels, only works for KJanusWidget titles
+
+Sentence style
+
+edit box labels
+list box labels
+combo box labels
+slider labels
+spin box labels                - If all those are regular labels, then done (need to check)
+check box labels             - Done
+option button labels        - Done
+
+pop-up hint text                         - TODO
+other non heading/title text        - Kind of -- hard to distinguish from title labels.
+
+Other violations
+
+Check for nested groupboxes. - Done, when parenting hierarchy isn't bizzare.
+
+Other todo:
+
+
+Widgets on menubar
+Menu order.
+Augment title checks to check for file - App naming 

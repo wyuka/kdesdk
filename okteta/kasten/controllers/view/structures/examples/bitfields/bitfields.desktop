@@ -1,0 +1,45 @@
+[Desktop Entry]
+Encoding=UTF-8
+Icon=arrow-left
+Type=Service
+ServiceTypes=KPluginInfo
+
+Name=Bitfields test
+Name[bs]=Proba bitskih polja
+Name[ca]=Prova de camps de bits
+Name[ca@valencia]=Prova de camps de bits
+Name[da]=Bitfields-test
+Name[de]=Bitfelder-Test
+Name[en_GB]=Bitfields test
+Name[es]=Prueba de campos de bits
+Name[et]=Bitiväljade test
+Name[fi]=Bittikenttien testi
+Name[fr]=Test de champs de bits
+Name[it]=Prova per campi di bit
+Name[kk]=Бит өрістерін сынау
+Name[km]=សាកល្បង​ Bitfields
+Name[ko]=비트필드 시험
+Name[nb]=Bitfelter-test
+Name[nds]=Bitfeller-Prööv
+Name[nl]=Test op bitvelden
+Name[pl]=Test bitfields
+Name[pt]=Teste de campos de 'bits'
+Name[pt_BR]=Teste de campos de 'bits'
+Name[sr]=Проба битских поља
+Name[sr@ijekavian]=Проба битских поља
+Name[sr@ijekavianlatin]=Proba bitskih polja
+Name[sr@latin]=Proba bitskih polja
+Name[sv]=Bitfälttest
+Name[uk]=Перевірка полів бітів
+Name[x-test]=xxBitfields testxx
+Name[zh_CN]=位域测试
+Name[zh_TW]=Bitfields 測試
+
+X-KDE-PluginInfo-Author=Alex Richardson
+X-KDE-PluginInfo-Email=alex.richardson@gmx.de
+X-KDE-PluginInfo-Name=bitfields
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Website=http://www.plugin.org/
+X-KDE-PluginInfo-Category=structure
+X-KDE-PluginInfo-License=LGPL
+X-KDE-PluginInfo-EnabledByDefault=false

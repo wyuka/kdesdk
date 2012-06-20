@@ -1,0 +1,44 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.kde.ksvnd">
+    <method name="commitDialog">
+      <arg type="s" direction="out"/>
+      <arg name="file" type="s" direction="in"/>
+    </method>
+    <method name="anyNotValidWorkingCopy">
+      <arg type="b" direction="out"/>
+      <arg name="wclist" type="as" direction="in"/>
+    </method>
+    <method name="anyValidWorkingCopy">
+      <arg type="b" direction="out"/>
+      <arg name="wclist" type="as" direction="in"/>
+    </method>
+    <method name="AreAnyFilesInSvn">
+      <arg type="b" direction="out"/>
+      <arg name="wclist" type="as" direction="in"/>
+    </method>
+    <method name="AreAnyFilesNotInSvn">
+      <arg type="b" direction="out"/>
+      <arg name="wclist" type="as" direction="in"/>
+    </method>
+    <method name="AreAllFilesNotInSvn">
+      <arg type="b" direction="out"/>
+      <arg name="wclist" type="as" direction="in"/>
+    </method>
+    <method name="AreAllFilesInSvn">
+      <arg type="b" direction="out"/>
+      <arg name="wclist" type="as" direction="in"/>
+    </method>
+    <method name="getActionMenu">
+      <arg type="as" direction="out"/>
+      <arg name="wclist" type="as" direction="in"/>
+    </method>
+    <method name="getTopLevelActionMenu">
+      <arg type="as" direction="out"/>
+      <arg name="wclist" type="as" direction="in"/>
+    </method>
+    <method name="popupMessage">
+      <arg name="file" type="s" direction="in"/>
+    </method>
+  </interface>
+</node>

@@ -1,0 +1,22 @@
+0.9.1:
+* Actually works on KDE 4.  A function needed to be specially exported, forgetting to do so
+  happened to work on KDE 3 and early versions of KDE 4 but that was never guaranteed.
+* Add guard to only use gcc extension if compiling with gcc.
+
+0.9: Initial KDE 4 release.
+* Port to KDE 4.
+* Add kio_perldoc to GENERATOR metainfo.
+* Better output for non-breaking spaces.
+* Don't try to load IMG tags.
+* Fix formatting of bulleted lists. (Patch from Bruce Ravel)
+* Use ::foo() form of C functions everywhere.
+* Correct call to execlp().  The same concerns apply to it as applied to
+  execl().  This stops the command from actually trying to show a man page when
+  kdeinit is started from a tty.
+* Don't add the HTML page name for hyperlinks that point to the same page.  First off,
+  we sometimes do it wrong and break the link, and second of all, it's simply less
+  efficient to force a reload of the same page.
+* Improve HTML output formatting.  Looks more like www.kde.org although I opted not to
+  add the KDE header to the output.
+
+0.8: Initial KDE 3 release.

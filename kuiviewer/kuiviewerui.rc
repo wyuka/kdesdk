@@ -1,0 +1,8 @@
+<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
+<kpartgui name="shell" version="1">
+<MenuBar>
+ <Menu name="file"><Text>&amp;File</Text></Menu>
+ <Menu name="edit"><Text>&amp;Edit</Text></Menu>
+ <Menu name="view"><Text>&amp;View</Text></Menu>
+</MenuBar>
+</kpartgui>

@@ -1,0 +1,28 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.kde.cervisia.cvsservice.cvsjob">
+    <signal name="jobExited">
+      <arg type="b" direction="out"/>
+      <arg type="i" direction="out"/>
+    </signal>
+    <signal name="receivedStdout">
+      <arg type="s" direction="out"/>
+    </signal>
+    <signal name="receivedStderr">
+      <arg type="s" direction="out"/>
+    </signal>
+    <method name="execute">
+      <arg type="b" direction="out"/>
+    </method>
+    <method name="cancel"/>
+    <method name="isRunning">
+      <arg type="b" direction="out"/>
+    </method>
+    <method name="cvsCommand">
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="output">
+      <arg type="as" direction="out"/>
+    </method>
+  </interface>
+</node>

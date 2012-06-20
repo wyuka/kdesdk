@@ -1,0 +1,187 @@
+<!DOCTYPE kpartgui>
+<kpartgui name="cervisiapart" version="13">
+<MenuBar>
+  <Menu name="file"><text>&amp;File</text>
+    <Action name="file_open"/>
+    <Action name="file_open_recent"/>
+    <Separator/>
+    <Action name="insert_changelog_entry"/>
+    <Separator/>
+    <Action name="file_update"/>
+    <Action name="file_status"/>
+    <Separator/>
+    <Action name="file_edit"/>
+    <Action name="file_resolve"/>
+    <Separator/>
+    <Action name="file_commit"/>
+    <Action name="file_add"/>
+    <Action name="file_add_binary"/>
+    <Action name="file_remove"/>
+    <Action name="file_revert_local_changes"/>
+    <Separator/>
+    <Action name="file_properties"/>
+  </Menu>
+  <Menu name="view"><text>&amp;View</text>
+    <Action name="stop_job"/>
+    <Separator/>
+    <Action name="view_log"/>
+    <Action name="view_annotate"/>
+    <Action name="view_diff_base"/>
+    <Action name="view_diff_head"/>
+    <Action name="view_last_change"/>
+    <Action name="view_history"/>
+    <Separator/>
+    <Action name="settings_hide_files"/>
+    <Action name="settings_hide_uptodate"/>
+    <Action name="settings_hide_removed"/>
+    <Action name="settings_hide_notincvs"/>
+    <Action name="settings_hide_empty_directories"/>
+    <Separator/>
+    <Action name="view_unfold_tree"/>
+    <Action name="view_fold_tree"/>
+  </Menu>
+  <Menu name="advanced"><text>&amp;Advanced</text>
+    <Action name="create_tag"/>
+    <Action name="delete_tag"/>
+    <Action name="update_to_tag"/>
+    <Action name="update_to_head"/>
+    <Action name="merge"/>
+    <Separator/>
+    <Action name="add_watch"/>
+    <Action name="remove_watch"/>
+    <Action name="show_watchers"/>
+    <Separator/>
+    <Action name="edit_files"/>
+    <Action name="unedit_files"/>
+    <Action name="show_editors"/>
+    <Separator/>
+    <Action name="lock_files"/>
+    <Action name="unlock_files"/>
+    <Separator/>
+    <Action name="make_patch"/>
+  </Menu>
+  <Menu name="repository"><text>&amp;Repository</text>
+    <Action name="repository_create"/>
+    <Action name="repository_checkout"/>
+    <Action name="repository_import"/>
+    <Separator/>
+    <Action name="show_repositories"/>
+  </Menu>
+  <Menu name="settings"><text>&amp;Settings</text>
+    <Separator group="save_merge_group"/>
+    <Action name="settings_create_dirs" group="save_merge_group"/>
+    <Action name="settings_prune_dirs" group="save_merge_group"/>
+    <Action name="settings_update_recursively" group="save_merge_group"/>
+    <Action name="settings_commit_recursively" group="save_merge_group"/>
+    <Action name="settings_do_cvs_edit" group="save_merge_group"/>
+    <Action name="configure_cervisia" group="configure_merge_group"/>
+    <Separator group="save_merge_group"/>
+  </Menu>
+  <Menu name="help"><text>&amp;Help</text>
+    <Action name="help_cvs_manual"/>
+  </Menu>
+</MenuBar>
+<ToolBar name="mainToolBar"><text>Main Toolbar</text>
+  <Action name="file_update"/>
+  <Action name="file_status"/>
+  <Separator lineSeparator="true"/>
+  <Action name="file_commit"/>
+  <Action name="file_add"/>
+  <Action name="file_remove"/>
+  <Separator lineSeparator="true"/>
+  <Action name="stop_job"/>
+</ToolBar>
+<Menu name="context_popup">
+  <Action name="file_edit"/>
+  <Separator/>
+  <Action name="view_diff_base"/>
+  <Action name="view_diff_head"/>
+  <Action name="view_last_change"/>
+  <Action name="file_resolve"/>
+  <Action name="view_log"/>
+  <Separator/>
+  <Action name="file_update"/>
+  <Action name="file_commit"/>
+  <Separator/>
+  <Action name="file_add"/>
+  <Action name="file_remove"/>
+  <Separator/>
+  <Action name="file_properties"/>
+</Menu>
+<Menu name="noncvs_context_popup">
+  <Action name="file_edit"/>
+  <Separator/>
+  <Action name="file_add"/>
+  <Separator/>
+  <Action name="file_properties"/>
+</Menu>
+<Menu name="folder_context_popup">
+  <Action name="unfold_folder"/>
+  <Separator/>
+  <Action name="file_update"/>
+  <Action name="file_commit"/>
+  <Separator/>
+  <Action name="file_add"/>
+  <Action name="file_remove"/>
+</Menu>
+<State name="has_sandbox">
+  <enable>
+    <Action name="insert_changelog_entry"/>
+    <Action name="view_unfold_tree"/>
+    <Action name="view_fold_tree"/>
+  </enable>
+</State>
+<State name="has_single_folder">
+  <enable>
+    <Action name="unfold_folder"/> 
+  </enable>
+</State>
+<State name="has_single_selection">
+  <enable>
+    <Action name="file_edit"/>
+    <Action name="file_resolve"/>
+    <Action name="view_log"/>
+    <Action name="view_annotate"/>
+    <Action name="view_diff_base"/>
+    <Action name="view_diff_head"/>
+    <Action name="view_last_change"/>
+    <Action name="file_properties"/>
+  </enable>
+</State>
+<State name="item_selected">
+  <enable>
+    <Action name="view_history"/>
+    <Action name="make_patch"/>
+  </enable>
+</State>
+<State name="has_no_job">
+  <enable>
+    <Action name="file_update"/>
+    <Action name="file_status"/>
+    <Action name="file_commit"/>
+    <Action name="file_add"/>
+    <Action name="file_add_binary"/>
+    <Action name="file_remove"/>
+    <Action name="file_revert_local_changes"/>
+    <Action name="create_tag"/>
+    <Action name="delete_tag"/>
+    <Action name="update_to_tag"/>
+    <Action name="update_to_head"/>
+    <Action name="merge"/>
+    <Action name="add_watch"/>
+    <Action name="remove_watch"/>
+    <Action name="show_watchers"/>
+    <Action name="edit_files"/>
+    <Action name="unedit_files"/>
+    <Action name="show_editors"/>
+    <Action name="lock_files"/>
+    <Action name="unlock_files"/>
+  </enable>
+</State>
+<State name="has_running_job">
+  <disable>
+    <Action name="repository_checkout"/>
+    <Action name="repository_import"/>
+  </disable>
+</State>
+</kpartgui>

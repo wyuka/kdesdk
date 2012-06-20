@@ -1,0 +1,12 @@
+TODO
+----
+
+* Move handling of recent commit messages from CervisiaPart to
+  DCOP service
+
+* Add special job classes derived from CvsJob that take over 
+  the parsing of cvs' output from Cervisia
+
+* Missing cvs functionality needed for Cervisia:
+    - cvs watch (add/remove)
+    - cvs diff (make patch)

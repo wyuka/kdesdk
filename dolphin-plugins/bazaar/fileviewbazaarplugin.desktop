@@ -1,0 +1,25 @@
+[Desktop Entry]
+Type=Service
+Name=Bazaar
+Name[ca]=Bazaar
+Name[cs]=Bazaar
+Name[de]=Bazaar
+Name[es]=Bazaar
+Name[hu]=Bazaar
+Name[it]=Bazaar
+Name[kk]=Bazaar
+Name[lt]=Bazaar
+Name[nb]=Bazaar
+Name[nds]=Bazaar
+Name[nl]=Bazaar
+Name[pa]=ਬਾਜ਼ਾਰ
+Name[pt]=Bazaar
+Name[pt_BR]=Bazaar
+Name[sv]=Bazaar
+Name[uk]=Bazaar
+Name[x-test]=xxBazaarxx
+Name[zh_CN]=Bazaar
+Name[zh_TW]=Bazaar
+X-KDE-ServiceTypes=FileViewVersionControlPlugin
+MimeType=text/plain;
+X-KDE-Library=fileviewbazaarplugin

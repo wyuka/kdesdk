@@ -1,0 +1,19 @@
+Cervisia requires cvs 1.10 on the cvs server. With
+cvs 1.9, diffs don't work! As this old version has a
+y2k bug, switching is advisable anyway.
+
+From version 1.1 on, Cervisia implements the menu item
+File->Revert. This hands over the command 'cvs update -C'
+to the cvs client. This works only for cvs >= 1.11.
+
+Bug reports are welcome. My time is limited, so don't
+expect wonders.
+If you want to contribute bugfixes or improvements,
+check out the source code from anonymous kde cvs.
+In order to bootstrap the package, you have to
+'make -f Makefile.cvs' there. Then you can make patches
+either by using 'cvs diff -u' or by using the 'Create
+patch' menu item in Cervisia.
+
+
+Christian Loose <christian.loose@hamburg.de>

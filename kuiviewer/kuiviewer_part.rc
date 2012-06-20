@@ -1,0 +1,17 @@
+<!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
+<kpartgui name="kuiviewer_part" version="5">
+<MenuBar>
+ <Menu name="file"><Text>&amp;File</Text>
+  <Action name="file_save_as"/>
+ </Menu>
+ <Menu name="edit"><Text>&amp;Edit</Text>
+  <Action name="edit_copy"/>
+ </Menu>
+ <Menu name="view"><Text>&amp;View</Text>
+  <Action name="change_style"/>
+ </Menu>
+</MenuBar>
+<ToolBar name="styleBar"><Text>Style</Text>
+  <Action name="change_style"/>
+</ToolBar>
+</kpartgui>

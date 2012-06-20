@@ -1,0 +1,49 @@
+# We don't care about initialisation done by X11.
+XLoadQueryFont
+_XInitKeysymDB
+IceRegisterForProtocolSetup
+KDE_IceRegisterForProtocolSetup
+IceOpenConnection
+KDE_IceOpenConnection
+KDE_IceProtocolSetup
+#and we don't care about Xim memleaks
+qt_init_internal
+QApplication::create_xim
+# workaround for Qt 2.2.0 bug
+QFontDatabase::QFontDatabase
+QFontDatabase::charSets
+
+#QRexExp does caching(?)
+QRegExpEngine::QRegExpEngine
+QRegExpEngine::parseExpression
+
+QStyleSheet::defaultSheet
+
+QTimer::singleShot
+QTextCodec::codecForLocale
+# Yeah, yeah we know that this metaobject stuff is never free'ed.
+QMetaObject::new_meta
+QObject::initMetaObject
+QObject::staticMetaObject
+QString::sprintf
+QWidget::createTLExtra
+# static KDE stuff
+kdbgstream::flush
+KCmdLineArgs::addCmdLineOptions
+k_bindtextdomain
+_nl_find_domain
+KIconTheme::list
+KIconTheme::current
+KGlobalSettings::toolBarFont
+KGlobalSettings::menuFont
+KGlobalSettings::fixedFont
+KGlobalSettings::generalFont
+KGlobalSettings::toolBarFont
+KImageIOFactory::self
+objMap
+# Some C functions that allocate data for initialisation
+getpwuid
+adjtime
+getservbyname
+# nothing created by static objects can be a memory leak
+__static_initialization_and_destruction_0

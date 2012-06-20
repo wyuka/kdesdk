@@ -1,0 +1,101 @@
+Coding Style
+============
+
+Formatting
+----------
+
+- No tabs.
+- Indent is 4 spaces.
+- A line should be 80 chars in length, with a maximum length of 90 chars
+- Brackets are always on separate lines.
+- Put spaces between brackets of if, while and
+  similar statements.
+- Follow the style of the rest of the file if it is different from these
+  guidelines
+  
+Example:
+
+void MyClass::myFunction(const QString& arg)
+{
+    if ( blah == "halb" )
+    {
+        doSometing();
+    }
+    else
+    {
+        varA = varB;
+    }
+}
+
+
+
+Header Formatting
+-----------------
+
+- Access modifiers are not indented.
+- Double inclusion guard defines are all upper case
+  letters and are composed of the namespace (if available),
+  the classname and a H suffix separated by underscores.
+- Inside a namespace there is no indentation.
+
+  
+Example:
+
+#ifndef NAMESPACE_MYCLASS_H
+#define NAMESPACE_MYCLASS_H
+
+namespace Namespace 
+{
+
+class MyClass
+{
+public:
+    MyClass();
+    
+private:
+    int m_intVar;
+    QProcess* m_proc;
+};
+
+}
+
+#endif
+
+
+
+Class and File Names
+--------------------
+
+- Use .h and .cpp for the header and source files, respectively
+- Do not abbreviate words in filenames
+- Use the classname without the namespace as the name of the file
+
+Example:
+
+class FooDialog : public QDialog
+{
+public:
+    FooDialog( QWidget* parent );
+};
+
+has files foodialog.h and foodialog.cpp instead of foodialog.h and foodlg.cpp
+
+
+Class and Variable Names
+------------------------
+
+- For class, variable and function names separate multiple
+  words by uppercasing the words preceded by other words.
+- Class names start with an uppercase letter.
+- Function names start with a lowercase letter.
+- Variable names start with a lowercase letter.
+- Member Variables of a class start with a 'm_' prefix
+  followed by an lowercase letter.
+- Use descriptive names where possible. Write "job" instead of "j", for
+  example.
+
+Member Functions
+----------------
+
+- Do not write inline accessors. All code should be in the .cpp files
+

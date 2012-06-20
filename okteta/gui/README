@@ -1,0 +1,20 @@
+Okteta Gui library
+===================
+part of the Okteta project, made within the KDE community.
+
+Copyright: 2003-2011 Friedrich W. H. Kossebau <kossebau@kde.org>
+
+Author/Maintainer: Friedrich W. H. Kossebau <kossebau@kde.org>
+
+
+description:
+-----------
+The lib implements two general usable widgets named "ByteArrayColumnView" and
+"ByteArrayRowView". They interact with the abstract byte array interface
+called "AbstractByteArrayModel" as offered by the Okteta core library.
+
+
+installing:
+-----------
+As the widgets are still in active development the API is not yet finished.
+Because of that no headers are installed.

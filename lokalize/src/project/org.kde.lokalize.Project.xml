@@ -1,0 +1,33 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.kde.Lokalize.Project">
+    <signal name="loaded">
+    </signal>
+    <method name="translationsRoot">
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="templatesRoot">
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="targetLangCode">
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="sourceLangCode">
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="init">
+      <arg name="path" type="s" direction="in"/>
+      <arg name="kind" type="s" direction="in"/>
+      <arg name="id" type="s" direction="in"/>
+      <arg name="sourceLang" type="s" direction="in"/>
+      <arg name="targetLang" type="s" direction="in"/>
+    </method>
+    <method name="kind">
+      <arg type="s" direction="out"/>
+    </method>
+    <method name="absolutePath">
+      <arg type="s" direction="out"/>
+      <arg type="s" direction="in"/>
+    </method>
+  </interface>
+</node>

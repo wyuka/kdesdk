@@ -1,0 +1,128 @@
+reset
+
+pattern BeginData
+P1
+2 2
+01
+10
+
+EndData
+pattern BeginData
+P1
+4 4
+1000
+0001
+0010
+0100
+
+EndData
+pattern BeginData
+P1
+4 4
+0001
+1000
+0100
+0010
+
+EndData
+pattern BeginData
+P1
+2 2
+00
+01
+
+EndData
+pattern BeginData
+P1
+4 4
+1000
+0000
+0000
+0000
+
+EndData
+pattern BeginData
+P1
+4 6
+1000
+0100
+0010
+0001
+0010
+0100
+
+EndData
+pattern BeginData
+P1
+8 8
+10000000
+10000000
+10000000
+11111111
+00001000
+00001000
+00001000
+11111111
+
+EndData
+pattern BeginData
+P1
+8 16
+00111000
+01000100
+10000010
+10000010
+10000010
+01000100
+00111000
+00000000
+10000011
+01000100
+00101000
+00101000
+00101000
+01000100
+10000011
+00000000
+
+EndData
+solid #303030
+solid #585858
+solid #808080
+solid #a0a0a0
+solid #c3c3c3
+solid #dcdcdc
+solid #400000
+solid #800000
+solid #c00000
+solid #ff0000
+solid #ffc0c0
+solid #004000
+solid #008000
+solid #00c000
+solid #00ff00
+solid #c0ffc0
+solid #000000
+solid #000080
+solid #0000c0
+solid #0000ff
+solid #c0c0ff
+solid #404000
+solid #808000
+solid #c0c000
+solid #ffff00
+solid #ffffc0
+solid #004040
+solid #008080
+solid #00c0c0
+solid #00ffff
+solid #c0ffff
+solid #800080
+solid #c000c0
+solid #ff00ff
+solid #ffc0ff
+solid #ff8000
+solid #c05800
+solid #ffa858
+solid #ffdca8
+solid #ffffff

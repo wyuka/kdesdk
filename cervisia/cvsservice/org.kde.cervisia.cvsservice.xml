@@ -1,0 +1,210 @@
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN" "http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.kde.cervisia.cvsservice.cvsservice">
+    <method name="add">
+      <arg name="files" type="as" direction="in"/>
+      <arg name="isBinary" type="b" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="addWatch">
+      <arg name="files" type="as" direction="in"/>
+      <arg name="events" type="i" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="annotate">
+      <arg name="fileName" type="s" direction="in"/>
+      <arg name="revision" type="s" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="checkout">
+      <arg name="workingDir" type="s" direction="in"/>
+      <arg name="repository" type="s" direction="in"/>
+      <arg name="module" type="s" direction="in"/>
+      <arg name="tag" type="s" direction="in"/>
+      <arg name="pruneDirs" type="b" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="checkout">
+      <arg name="workingDir" type="s" direction="in"/>
+      <arg name="repository" type="s" direction="in"/>
+      <arg name="module" type="s" direction="in"/>
+      <arg name="tag" type="s" direction="in"/>
+      <arg name="pruneDirs" type="b" direction="in"/>
+      <arg name="alias" type="s" direction="in"/>
+      <arg name="exportOnly" type="b" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="checkout">
+      <arg name="workingDir" type="s" direction="in"/>
+      <arg name="repository" type="s" direction="in"/>
+      <arg name="module" type="s" direction="in"/>
+      <arg name="tag" type="s" direction="in"/>
+      <arg name="pruneDirs" type="b" direction="in"/>
+      <arg name="alias" type="s" direction="in"/>
+      <arg name="exportOnly" type="b" direction="in"/>
+      <arg name="recursive" type="b" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="commit">
+      <arg name="files" type="as" direction="in"/>
+      <arg name="commitMessage" type="s" direction="in"/>
+      <arg name="recursive" type="b" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="createRepository">
+      <arg name="repository" type="s" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="createTag">
+      <arg name="files" type="as" direction="in"/>
+      <arg name="tag" type="s" direction="in"/>
+      <arg name="branch" type="b" direction="in"/>
+      <arg name="force" type="b" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="deleteTag">
+      <arg name="files" type="as" direction="in"/>
+      <arg name="tag" type="s" direction="in"/>
+      <arg name="branch" type="b" direction="in"/>
+      <arg name="force" type="b" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="downloadCvsIgnoreFile">
+      <arg name="repository" type="s" direction="in"/>
+      <arg name="outputFile" type="s" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="downloadRevision">
+      <arg name="fileName" type="s" direction="in"/>
+      <arg name="revision" type="s" direction="in"/>
+      <arg name="outputFile" type="s" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="downloadRevision">
+      <arg name="fileName" type="s" direction="in"/>
+      <arg name="revA" type="s" direction="in"/>
+      <arg name="outputFileA" type="s" direction="in"/>
+      <arg name="revB" type="s" direction="in"/>
+      <arg name="outputFileB" type="s" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="diff">
+      <arg name="fileName" type="s" direction="in"/>
+      <arg name="revA" type="s" direction="in"/>
+      <arg name="revB" type="s" direction="in"/>
+      <arg name="diffOptions" type="s" direction="in"/>
+      <arg name="context" type="u" direction="in"/>
+      <arg type="o" direction="out"/>
+   </method>
+    <method name="diff">
+      <arg name="fileName" type="s" direction="in"/>
+      <arg name="revA" type="s" direction="in"/>
+      <arg name="revB" type="s" direction="in"/>
+      <arg name="diffOptions" type="s" direction="in"/>
+      <arg name="format" type="s" direction="in"/>
+      <arg type="o" direction="out"/>
+   </method>
+    <method name="edit">
+      <arg name="files" type="as" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="editors">
+      <arg name="files" type="as" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="history">
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="import">
+      <arg name="workingDir" type="s" direction="in"/>
+      <arg name="repository" type="s" direction="in"/>
+      <arg name="module" type="s" direction="in"/>
+      <arg name="ignoreList" type="s" direction="in"/>
+      <arg name="comment" type="s" direction="in"/>
+      <arg name="vendorTag" type="s" direction="in"/>
+      <arg name="releaseTag" type="s" direction="in"/>
+      <arg name="importAsBinary" type="b" direction="in"/>
+      <arg name="useModificationTime" type="b" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="lock">
+      <arg name="files" type="as" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="log">
+      <arg name="fileName" type="s" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="login">
+      <arg name="repository" type="s" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="logout">
+      <arg name="repository" type="s" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="makePatch">
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="makePatch">
+      <arg name="diffOptions" type="s" direction="in"/>
+      <arg name="format" type="s" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="moduleList">
+      <arg name="repository" type="s" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="remove">
+      <arg name="files" type="as" direction="in"/>
+      <arg name="recursive" type="b" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="removeWatch">
+      <arg name="files" type="as" direction="in"/>
+      <arg name="events" type="i" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="rlog">
+      <arg name="repository" type="s" direction="in"/>
+      <arg name="module" type="s" direction="in"/>
+      <arg name="recursive" type="b" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="simulateUpdate">
+      <arg name="files" type="as" direction="in"/>
+      <arg name="recursive" type="b" direction="in"/>
+      <arg name="createDirs" type="b" direction="in"/>
+      <arg name="pruneDirs" type="b" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="status">
+      <arg name="files" type="as" direction="in"/>
+      <arg name="recursive" type="b" direction="in"/>
+      <arg name="tagInfo" type="b" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="unedit">
+      <arg name="files" type="as" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="unlock">
+      <arg name="files" type="as" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="update">
+      <arg name="files" type="as" direction="in"/>
+      <arg name="recursive" type="b" direction="in"/>
+      <arg name="createDirs" type="b" direction="in"/>
+      <arg name="pruneDirs" type="b" direction="in"/>
+      <arg name="extraOpt" type="s" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="watchers">
+      <arg name="files" type="as" direction="in"/>
+      <arg type="o" direction="out"/>
+    </method>
+    <method name="quit">
+    </method>
+  </interface>
+</node>

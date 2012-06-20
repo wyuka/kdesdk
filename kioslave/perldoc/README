@@ -1,0 +1,47 @@
+kio_perldoc - A kioslave interface to the imbedded Perl documentation.
+
+Version: 0.9.1
+
+It requires Perl 5.8 and the perl standard perldoc program to be installed.
+
+Also required is the Switch module (emulates the Perl 6 switch feature in Perl 6).  It
+looks to me like it's also included with Perl 5.8, but if this doesn't work, try that
+first.
+
+It uses a stripped-down version of the Pod::HtmlEasy module from CPAN, by M. P.
+Graciliano and Geoffrey Leach. (Specifically, the 0.9 version)
+
+This code started off as a KDevelop addon (and if you have KDevelop installed, you
+also already have a perldoc KIOSlave installed!!  Don't overwrite it unless you know
+what you're doing!)
+
+This version is improved however.
+
+Installing:
+This KIOSlave is for KDE 4, and it requires CMake to build.  Installing is
+about as easy as:
+
+$ cmake . -DCMAKE_INSTALL_PREFIX=/opt/kde4 (Replace /opt/kde4 with your KDE 4 prefix)
+$ make && make install (or sudo make install as appropriate)
+
+You may have to run kbuildsycoca4 to pick up the .protocol file.
+
+Usage:
+In konq: perldoc:/functions/foo to get the perldoc info for the given perl function
+(as if you ran perldoc -f foo).
+
+or, perldoc:/faq/search_terms to search perlfaq* for the given search terms, and display
+all the matches.  (like perldoc -q foo)
+
+Finally, perldoc:/foo will show the perldoc results just as if you ran perldoc foo.
+Both module names (i.e. Test::More) and pod pages (i.e. perl58delta) work.
+
+TODO:
+ * If a faq or function is not found you currently just get a very empty page.
+ * Probably not quite up to par for translators. :(
+ * Looks like perl.com, it should look like kde.org, however the CSS can be changed
+   fairly easily so this may be easy to fix.
+
+This is for KDE 4.  The port from KDE 3 wasn't too hard.
+
+ - Michael Pyne <michael.pyne@kdemail.net>

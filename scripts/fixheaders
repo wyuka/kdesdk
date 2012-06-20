@@ -1,0 +1,240 @@
+#! /usr/bin/env perl
+
+# this script is written by Stephan Kulow <coolo@kde.org> with
+# much help from Sirtaj Singh Kang <ssk@physics.unimelb.edu.au>
+
+if ($ARGV[0]) {
+  $topdir = $ARGV[0];
+} else {
+  $topdir=`pwd`;
+}
+chomp $topdir;
+
+$lastdir = '.';
+
+
+# this is the important part. Left from the '=>' you find the regular
+# expression for the g++ output and right from '=>' the header file to
+# include
+%messages = 
+(
+ 'implicit declaration of function `int i18n\(\.\.\.\)\'' => "klocale",
+ '`i18n\' undeclared \(first use this function\)' => "klocale",
+ 'variable `class QPixmap \S*\' has initializer but incomplete type' => "qpixmap",
+ '`kapp\' undeclared \(first use this function\)' => "kapplication",
+ 'no matching function for call to `KLocale::' => "klocale",
+ '`klocale\' undeclared \(first use this function\)' => "klocale",
+ 'no matching function for call to `QPopupMenu::' => "qpopupmenu",
+ '`QTextStream\' undeclared \(first use this function\)' => "qtextstream",
+ '`QTextStream\' was not declared in this scope' => "qtextstream",
+ 'incomplete type `QSocketNotifier\'' => "qsocketnotifier",
+ 'no matching function for call to `KConfig' => "kconfig",
+ 'variable `class KConfig \S*\' has initializer but incomplete type' => "kconfig",
+ 'implicit declaration of function `int kDebug' => "kdebug",
+ 'implicit declaration of function `int kWarning' => "kdebug",
+ '`QFile\' undeclared \(first use this function' => "qfile",
+ 'variable `QFile \S*\' has initializer but incomplete type' => "qfile",
+ 'type `KConfigBase\' is not a base type for type `KConfig' => "kconfig",
+ 'invalid use of undefined type `class QAccel' => "qaccel",
+ 'invalid use of undefined type `class KAboutData' => "kaboutdata",
+ 'incomplete type `KAboutData\'' => "kaboutdata",
+ 'incomplete type `QGrid\'' => "qgrid",
+ 'invalid use of undefined type `class QGrid\'' => "qgrid",
+ 'aggregate `class KConfig \S*\' has incomplete type' => "kconfig",
+ '`stderr\' undeclared \(first use this function' => "stdio",
+ 'invalid use of undefined type `class KConfig' => "kconfig",
+ 'implicit declaration of function `int f?printf' => "stdio",
+ 'no method `KGlobal::' => "kglobal",
+ '`KGlobal\' undeclared \(first use this function\)' => "kglobal",
+ 'implicit declaration of function `int locate\(\.\.\.\)' => "kstddirs",
+ '`locate\' undeclared \(first use this function\)' => "kstddirs",
+ 'no matching function for call to `KStandardDirs' => "kstddirs",
+ 'no method `KStandardDirs::' => "kstddirs",
+ 'variable `class QFile \S*\' has initializer but incomplete type' => "qfile",
+ 'implicit declaration of function `int ICON\(\.\.\.\)' => "kiconloader",
+ '`QMessageBox\' undeclared \(first use this function\)' => "qmessagebox",
+ 'no matching function for call to `QBoxLayout::QBoxLayout' => "qlayout",
+ '`QUriDrag\' undeclared \(first use this function\)' => "qdragobject",
+ '`kDebug\' undeclared \(first use this function\)' => "kdebug",
+ '`kWarning\' undeclared \(first use this function\)' => "kdebug",
+ 'no matching function for call to `KMenuBar::insertItem\(QString, KPopupMenu' => "kpopupmenu",
+ 'no matching function for call to `KMenuBar::' => "kmenubar",
+ 'invalid use of undefined type `class QPointArray' => "qpointarray",
+ 'variable `QPainter \S*\' has initializer but incomplete type' => "qpainter",
+ 'invalid use of undefined type `class QRegExp' => "qregexp",
+ 'invalid use of undefined type `class QPushButton' => "qpushbutton",
+ 'cannot convert `QPushButton \*\' to `QButton \*' => "qpushbutton",
+ 'invalid use of undefined type `class QButton' => "qbutton",
+ '`QButton\' undeclared \(first use this function\)' => "qbutton",
+ 'no method `QCursor::pos' => "qcursor",
+ '`DesktopIcon\' undeclared \(first use this function\)' => "kiconloader",
+ '`BarIcon\' undeclared \(first use this function\)' => "kiconloader",
+ '`SmallIcon\' undeclared \(first use this function\)' => "kiconloader",
+ '`UserIcon\' undeclared \(first use this function\)' => "kiconloader",
+ 'implicit declaration of function `int UserIcon\(...\)\'' => "kiconloader",
+ '`KIcon\' undeclared \(first use this function\)' => "kiconloader",
+ 'invalid use of undefined type `class KIconLoader' => "kiconloader",
+ 'invalid use of undefined type `class KComponentData' => "kcomponentdata",
+ 'invalid use of undefined type `class KStatusBar\'' => "kstatusbar",
+ 'invalid use of undefined type `class QLabel\'' => "qlabel",
+ 'invalid use of undefined type `class QImage\'' => "qimage",
+ 'invalid use of undefined type `class QImageIO\'' => "qimage",
+ 'invalid use of undefined type `class QLineEdit\'' => "qlineedit",
+ 'invalid use of undefined type `class QComboBox\'' => "qcombobox",
+ 'invalid use of undefined type `class QStyle\'' => "qstyle",
+ 'invalid use of undefined type `class KPopupMenu\'' => "kpopupmenu",
+ 'invalid use of undefined type `class QPopupMenu\'' => "qpopupmenu",
+ 'cannot convert `KPopupMenu \*\' to `QPopupMenu \*' => "kpopupmenu",
+ 'aggregate `QPopupMenu \S*\' has incomplete type' => "qpopupmenu",
+ 'invalid use of undefined type `class KUrl' => "kurl",
+ 'no method `QApplication::' => "qapplication",
+ 'no method `QFile::' => "qfile",
+ 'error: \'Q3CString\' is used as a type' => "q3cstring",
+ 'error: ISO C\+\+ forbids declaration of \`Q3CString\' with' => "q3cstring",
+ 'error: incomplete type \'QPixmap\' cannot be used' => 'qpixmap',
+ 'error: invalid use of undefined type `struct QVector' => 'qvector',
+ 'error: incomplete type `Q3ValueList' => 'q3valuelist',
+ 'error: variable `Q3ValueList<' => 'q3valuelist',
+ 'error: `Q3PointArray\' undeclared' => 'q3pointarray',
+ 'error: invalid use of undefined type \`struct QColor' => 'qcolor',
+ 'error: `QX11Info::' => 'qx11info_x11',
+ 'error: incomplete type \'QX11Info' => 'qx11info_x11',
+ 'error: \'Q3AsciiDi' => 'q3asciidict',
+ 'invalid use of undefined type \'struct KXMLGUIFactory' => 'kxmlguifactory',
+ 'cannot convert \'KXMLGUIFactory*' => 'kxmlguifactory',
+ 'error: \'I18N_NOOP\' was not declared' => 'klocale',
+ 'error: \'i18n\' was not declared' => 'klocale',
+ 'error: incomplete type \'KGlobal' => 'kglobal',
+ 'error: \'KRandom\' has not been declared' => 'krandom',
+ 'error: \‘KStandardAction\’ has not been declared' => 'kstandardaction',
+ 'error: invalid use of undefined type \‘struct KSelectAction' => 'kselectaction',
+ 'invalid use of undefined type \‘struct KToggleAction' => 'ktoggleaction',
+ 'error: invalid use of undefined type \'struct KJobUiDelegate' => 'kjobuidelegate',
+ 'error: invalid use of undefined type \‘struct QLabel' => 'qlabel',
+ 'error: \'KToggleAction\' was not declared in this scope' => 'ktoggleaction',
+ 'invalid use of undefined type ‘struct KActionCollection' => 'kactioncollection',
+ 'forbids declaration of \'KToggleAction\' with no type' => 'ktoggleaction',
+ 'type \'struct KActionMenu' => 'kactionmenu',
+ 'invalid use of undefined type \'struct KAction' => 'kaction',
+ 'invalid use of undefined type ‘struct KAction' => 'kaction',
+ 'invalid use of undefined type ‘struct KSelectAction' => 'kselectaction',
+ 'invalid use of undefined type .struct KFontSizeAction' => 'kfontsizeaction',
+ 'invalid use of undefined type .struct KFontAction' => 'kfontaction',
+ "invalid use of undefined type .* KIcon" => 'kicon',
+);
+
+# Initial values are simply to get into the while
+$exitcode=2; # exit-code from last 'make' command
+$addedone=1; # 1 when something has been fixed, means we can try again
+
+while ( $exitcode != 0 && $addedone != 0 )
+{
+ $addedone = 0;
+
+ %changes = ();
+ open(INPUT,"makeobj -j10 -k 2>&1 |") || die "Couldn't run makeobj";
+ while(<INPUT>)
+ {
+  if (/make.*Entering directory \`(.+)\'/) {
+    $lastdir = $1;
+    $lastdir =~ s/^$topdir\///;
+    print STDERR "entering $lastdir\n";
+    next;
+  }
+  if (/^([^:]*):\d*: (.*)$/) {
+    $file = $1;
+    $line = $2;
+    if ($file !~ m,^\/,) {
+      $file = "$lastdir/$file";
+    }
+    #print STDERR "file=$file $line\n";
+  } else {
+    # This could be a continuation line
+    if ( defined $line && $line ne "" ) {
+      $line .= $_;
+      #print STDERR "file still $file\n";
+      #print STDERR "line=$line\n";
+    } else {
+      # Compilation line, or other unparsable line -> ignore
+      print STDOUT $_;
+      next;
+    }
+  }
+  
+  #print STDERR "Already having changes for $file\n" if defined($changes{$file});
+  next if defined($changes{$file});
+
+  #print STDOUT $_;
+
+  foreach $message (keys %messages) {
+    if ($line =~ /.*$message.*/) {
+      $changes{$file} = $messages{$message};
+      $addedone = fixFile($file, $messages{$message});
+    }
+  }
+  
+  if (defined($changes{$file})) { $file=""; $line=""; }
+ } # end of while(<INPUT>)
+ close(INPUT);
+ $exitcode=($?>>8);
+} # end of main while
+
+sub fixFile
+{
+  my( $file, $adding ) = @_;
+  
+  my $lastinclude = "";
+  my $lastkinclude = "";
+
+  # read file
+  open ( FILE, "$file" ) || die "Can't read $file";
+  
+  my $flines;
+  my $cpplevel = 0;
+
+  while (<FILE>) {
+    $flines .= $_;
+    #print "$cpplevel $_";
+    if ($_ =~ m/^#if/ && $_ !~ m/^#ifn/) {
+       $cpplevel = $cpplevel + 1;
+    }
+    if ($_ =~ m/^#endif/) {
+       $cpplevel = $cpplevel - 1;
+    }
+    if ($cpplevel == 0 && ($_ =~ m/^(#include\s*[\"<]q\S*\.h[\">]\S*)/ || $_ =~ m/^(#include\s*[\"<]Q\S*[\">]\S*)/)) {
+       $lastinclude = $1;
+    }
+   if ($cpplevel == 0 && $_ =~ m/^(#include\s*<k\S*\.h>\S*)/) {
+       $lastkinclude = $1;
+    }
+
+  }
+  
+  close FILE;
+  
+ $lastinclude = $lastkinclude if (!$lastinclude);
+
+  if (!$lastinclude) {
+    print STDERR "ERROR: no include found in $file! (tried to add $adding.h)\n";
+    return 0;
+  }
+
+  if ($flines =~ m/#include\s*[\"<]$adding\.h[\">]\s*\n/) {
+    print STDERR "ERROR: $adding.h already included in $file!\n";
+    return 0;
+  }
+  if ($flines =~ /(\n$lastinclude)/) {
+    $flines =~ s/$lastinclude(.*\n)/$lastinclude$1#include <$adding.h>\n/;
+    print STDERR "ADDED <$adding.h> after \"$lastinclude\" in $file\n";
+  } else {
+    print STDERR "ERROR: can't find $lastinclude in $file\n";
+    return 0;
+  }
+	    
+  # write file
+      
+  open( FILE, ">$file" ) || die "Can't write to $file";
+  print FILE $flines;    
+  close FILE;
+  return 1;
+}

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+export APP=$1
+export DCOPNAME=$2
+
+if [ ! -x $APP ]
+then
+    kdialog --error "Sorry, $APP is not a valid executable file."
+    exit 1;
+fi
+
+DEBUGHELPER=`which kunittest_debughelper`
+if [ -z $DEBUGHELPER ]
+then
+    kdialog --error "Sorry, couldn't find the kunittest_debughelper script."
+    exit 3
+fi
+
+$APP 2>&1 | perl $DEBUGHELPER "$DCOPNAME-*"

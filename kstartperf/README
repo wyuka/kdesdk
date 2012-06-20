@@ -1,0 +1,67 @@
+
+kstartperf: Startup time measurement tool for KDE applications
+
+Usage: 
+======
+
+kstartperf measures startup time for KDE applications.
+The startup time is taken as the amount of time from starting the application to the first
+window created by that application appearing on screen.
+
+Usage is simple:
+
+    $ kstartperf konsole
+
+will show you the startup time of konsole in milliseconds.
+
+If the KDE application you wish to profile has been build in debugging mode,
+it is likely to produce a lot of additional output in addition to the 
+results from kstartperf.  You can filter out this information by running:
+
+kstartperf <application> 2>&1 | grep ^kstartperf:
+
+The "2>&1" combines the output from the standard error and standard output
+streams of your application, and then passes this merged output
+through the grep tool to select only lines beginning with "kstartperf"
+
+
+How can I get more detailed information about the startup of my application?
+============================================================================
+
+Various tools are available.  One of the most popular is callgrind to profile
+your application, with kcachegrind to analyse the results.  
+KCacheGrind can display a detailed breakdown of where your application
+spends its CPU cycles during startup.
+
+More information about KCacheGrind can be found here:
+
+http://kcachegrind.sourceforge.net/
+
+TODO:  Add a link to pages on the KDE techbase ( http://techbase.kde.org ) 
+       about optimising KDE applications.
+
+How does kstartperf work?
+=========================
+
+1. Kstartperf stores the current time with microsecond resolution in an 
+   environment variable ($KSTARTPERF).
+2. Kstartperf executes the requested application, but with a LD_PRELOAD
+   library that overrides the X11 XMapWindow() function.
+3. As soon as the app calls XMapWindow (this is the point where we assume
+   that the app has "started up"), our function is called instead of the
+   original XMapWindow(). This function calculates the time difference 
+   between the current time and the time stored in the environment variable 
+   and prints this information to standard error. 
+4. Our function disables itself and calls the original XMapWindow().
+
+
+
+Additional notes
+================
+
+The appliation that is being profiled needs to be linked against kdecore.
+
+Credits
+=======
+Geert Jansen <jansen@kde.org>, 
+20 July 2000

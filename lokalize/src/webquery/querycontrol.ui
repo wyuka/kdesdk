@@ -1,0 +1,43 @@
+<ui version="4.0" >
+ <class>QueryControl</class>
+ <widget class="QWidget" name="QueryControl" >
+  <layout class="QVBoxLayout" >
+   <item>
+    <widget class="QPushButton" name="queryBtn" >
+     <property name="text" >
+      <string>Query</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="autoQuery" >
+     <property name="text" >
+      <string>Autoquery</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="checkBox" >
+     <property name="toolTip" >
+      <string>Prefetch for the next untranslated</string>
+     </property>
+     <property name="text" >
+      <string>Prefetch</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="MyActionCollectionView" name="actionzView" />
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MyActionCollectionView</class>
+   <extends>QTreeView</extends>
+   <header>myactioncollectionview.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

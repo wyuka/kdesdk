@@ -1,0 +1,15 @@
+This is a KDE Addressbook Plugin, that is able to parse the file containing
+names and email addresses of all KDE SVN accounts and puts them into your
+addressbook. Very handy being able to auto-complete all those KDE developers
+in KMail :)
+
+After installing, fire up kcontrol, open the Addressbook configuration,
+select Add -> "file", enter a descriptive name like "KDE SVN Accounts",
+check the "Read-only" option and select "KDE Repository Accounts" from the
+dropdown list. Finally, enter the full path to the "accounts" file
+(in SVN, it's in the "kde-common" module).
+
+That should be all :)
+
+Carsten Pfeiffer <pfeiffer@kde.org>
+

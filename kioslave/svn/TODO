@@ -1,0 +1,74 @@
+For the menu options, tortoise SVN has something like below.
+We can follow this to some extent:
+
+Folder not in SVN at all:
+
+SVN Checkout
+Svn:
+  Export
+  Create Repository here
+  Import
+  ----
+  Settings...
+  Help
+
+A folder and a file in an SVN folder and in the SVN repository
+
+SVN Update
+SVN Commit....
+Svn:
+  Show Log
+  Check for modifications
+  Revision Graph
+  ----
+  Update to revision...
+  Rename...
+  Delete
+  Revert
+  Cleanup
+  ----
+  Branch/tag...
+  Switch...
+  Merge...
+  Export...
+  Relocate...
+  ----
+  Add (?)
+  ---- 
+  Create Patch...
+  Apply Patch...
+  ----
+  Settings...
+  Help
+  
+A file in an SVN folder and in SVN repository
+
+SVN Update
+SVN Commit....
+Svn:
+  Show Log
+  Check for modifications
+  Revision Graph
+  ----
+  Update to revision...
+  Rename...
+  Delete
+  Revert
+  Cleanup
+  ----
+  Branch/tag...
+  Switch...
+  Merge...
+  Blame...
+  ----
+  Settings...
+  Help
+
+
+A file in SVN folder, but not in repos
+
+Svn:
+  Add
+  Add to ignore list 
+
+                         

@@ -1,0 +1,109 @@
+<!DOCTYPE kpartgui>
+<kpartgui name="Okteta" version="3">
+<MenuBar>
+  <Menu name="file">
+    <Action name="connect_to" append="open_merge" />
+    <Action name="save_copy_as" />
+    <Action name="save_as_template" />
+    <Action name="export" append="save_merge" />
+    <Action name="file_reload" append="revert_merge" />
+    <Separator/>
+    <Action name="set_offering" />
+    <Separator/>
+    <Action name="cancel" />
+    <Menu name="permission">
+      <text context="@title:menu">Permissions</text>
+      <Action name="isreadonly" />
+      <Action name="isoverwriteonly" />
+    </Menu>
+    <Separator/>
+    <Action name="new_window"/>
+    <Action name="close_window"/>
+    <Action name="file_close_all_other" append="close_merge"/>
+  </Menu>
+  <Menu name="edit">
+    <Action name="copy_as" append="edit_paste_merge" />
+    <Action name="insert" append="edit_paste_merge" />
+    <Action name="edit_select" append="edit_select_merge" />
+    <Separator append="edit_select_merge" />
+    <Action name="set_overwrite" append="edit_select_merge" />
+    <Separator append="edit_select_merge" />
+    <Action name="goto_offset" />
+  </Menu>
+  <Menu name="view">
+    <Action name="view_showsnonprinting" />
+    <Action name="view_lineoffset" />
+    <Action name="togglecolumns" />
+    <Separator/>
+    <Action name="view_valuecoding" />
+    <Action name="view_charencoding" />
+    <Separator/>
+    <Action name="view_bytesperline" />
+    <Action name="view_bytespergroup" />
+    <Action name="resizestyle" />
+    <Action name="viewmode" />
+    <Separator/>
+    <Action name="view_area_split_horizontally"/>
+    <Action name="view_area_split_vertically"/>
+    <Action name="view_area_close"/>
+    <Separator/>
+    <Menu name="view_profile">
+      <text context="@title:menu submenu to select the view profile or change it">View Profile</text>
+      <Action name="view_profile_new" />
+      <Separator/>
+      <Action name="view_profile_save" />
+      <Action name="view_profile_reload" />
+      <Separator/>
+      <ActionList name="view_profile_list" />
+    </Menu>
+  </Menu>
+  <Menu name="bookmarks">
+    <Action name="bookmark_add" />
+    <Action name="bookmark_edit" />
+    <Separator/>
+    <Action name="bookmark_replace" />
+    <Action name="bookmark_remove" />
+    <Action name="bookmark_remove_all" />
+    <Separator/>
+    <Action name="bookmark_previous" />
+    <Action name="bookmark_next" />
+    <Separator/>
+    <ActionList name="bookmark_list" />
+  </Menu>
+  <Menu name="tools">
+    <ActionList name="tools_list" />
+  </Menu>
+  <Menu name="windows"><text>&amp;Windows</text>
+    <Action name="window_previous" />
+    <Action name="window_next" />
+    <Separator/>
+    <ActionList name="windows_list"/>
+  </Menu>
+  <Menu name="settings">
+    <Action name="settings_profiles_manage" />
+  </Menu>
+</MenuBar>
+
+<!-- main toolbar //-->
+<ToolBar name="mainToolBar" noMerge="1"><text>Main Toolbar</text>
+  <Action name="drag_document"/>
+  <Separator lineSeparator="true"/>
+  <Action name="file_new"/>
+  <Action name="file_open"/>
+  <Action name="file_save"/>
+  <Action name="file_save_as"/>
+  <Separator/>
+  <Action name="edit_undo"/>
+  <Action name="edit_redo"/>
+  <Action name="edit_cut"/>
+  <Action name="edit_copy"/>
+  <Action name="edit_paste"/>
+  <Separator/>
+  <Action name="edit_find"/>
+  <Action name="edit_find_next"/>
+  <Action name="edit_find_last"/>
+  <Separator/>
+  <Action name="cancel"/>
+  <Action name="help"/>
+</ToolBar>
+</kpartgui>

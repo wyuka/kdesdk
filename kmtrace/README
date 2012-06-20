@@ -1,0 +1,110 @@
+This is a KDE tool to assist with malloc debugging using glibc's "mtrace"
+functionality. Unfortunately the mtrace that is part of current (9/9/2000)
+glibc versions only logs the return-address of the malloc/free call.
+The file mtrace.c in this directory logs a complete backtrace upon malloc/
+free.
+
+THIS PROGRAM DEPENDS ON GLIBC! It does not pretend to be portable.
+
+Howto use:
+
+Install the libktrace.so shared library, the ktrace.h header file, the
+and kde.excludes file and the kmtrace processing tool with:
+
+	make install
+
+There are two ways to activate memory usage loggings by ktrace  :
+
+1) The LD_PRELOAD way
+
+This way, you can debug any application without having to recompile it,
+but you'll have to debug also the memory allocated by KApplication and
+friends.
+
+You can activate malloc logging by starting yourApplication as:
+
+	MALLOC_TRACE=/tmp/ktrace.out LD_PRELOAD=$KDEDIR/lib/libktrace.so yourApplication
+
+2) The manual way
+
+Take the KDE application that you want to investigate and add
+
+	#include <ktrace.h>
+
+Add as first statement in main():
+
+	ktrace();
+
+Add ktrace_s.a to the LDADD line in your Makefile.am like:
+
+	kicker_LDADD = kicker.la /opt/kde/lib/libktrace_s.a
+
+Note that the static library is used.
+You can now activate malloc logging by starting yourApplication as:
+
+	MALLOC_TRACE=/tmp/ktrace.out yourApplication
+
+This will generate a huge log in /tmp/ktrace.out.
+
+You can process this log with:
+
+        kmtrace /tmp/ktrace.out > ktrace.parsed
+
+By default the trace-output is stored in the current directory
+as "ktrace.out". kmtrace also searches it there, so you don't need
+to add any commandline options.  
+
+TIPS
+====
+
+* If you can't be bothered with the stuff that KApplication allocates for you
+you might want to put the ktrace() call after the KApplication constructor.
+This will lead to a lot of warnings like: 
+
+	Freeing unalloacted memory: 0x08056108
+
+Which are harmless, it just means that the memory was allocated before you
+turned the tracing on. Note that you cannot use this if you're using
+LD_PRELOAD to use ktrace.
+
+* To filter out harmless allocations out of the output file you can specify
+with the --exclude option a file with symbols to exclude from output. If a 
+backtrace contains a symbol that starts with any of the symbols in this file, 
+this backtrace / leaked block is not shown in the output.
+
+In the file kde.exclude some example symbols are listed. Usage example:
+
+	kmtrace /tmp/malloc.trace > /tmp/malloc.parsed
+
+* Be aware that the reported symbols may not be accurate under all 
+circumstances. E.g. consider the following backtrace:
+
+   0x405879c1 /lib/libdl.so.2(dlerror+0x1b1)
+   0x405873b3 /lib/libdl.so.2(dlopen+0x33)
+   0x4053c0b2 /ext/kde2.0/lib/libkdecore.so.3(QXmlSimpleReader::reportParseErro
+   0x4053c74b /ext/kde2.0/lib/libkdecore.so.3(lt_dlexit+0x24b)
+   0x4053c894 /ext/kde2.0/lib/libkdecore.so.3(lt_dlexit+0x394)
+   0x4053dd49 /ext/kde2.0/lib/libkdecore.so.3(lt_dlopen+0x899)
+
+The QXmlSimpleReader is obviously wrong here. 
+
+* You can use the --tree option to kmtrace to specify a file to print a tree
+of the allocations. You can also use --treedepth and --treethreshold options
+to hide subtrees that are deeper than the specified depth or allocated less
+than the given memory amount.
+
+* The advantage of using libktrace_s.a (the static library) is that you can
+put calls to ktrace() and kuntrace() around a block of code that
+interests you. Only allocations and deallocations between the first call
+to ktrace() and the first call to kuntrace() will be logged.
+
+
+Have fun.
+
+Waldo Bastian
+bastian@kde.org
+
+kmtrace.cpp by Waldo Bastian <bastian@kde.org>
+ktrace.c by Waldo Bastian <bastian@kde.org> based on mtrace.c
+mtrace.c by Mike Haertel <mike@ai.mit.edu>
+mtrace.c patched by Andi Kleen <ak@suse.de>

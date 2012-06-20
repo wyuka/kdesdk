@@ -1,0 +1,99 @@
+=head1 NAME
+
+Cervisia - Graphical CVS frontend
+
+=head1 SYNOPSIS
+
+B<cervisia>
+         S<[ B<--display> I<display> ]>
+         S<[ B<--caption> I<caption> ]>
+         S<[ B<--icon> I<icon> ]>
+         S<[ B<--config> I<filename> ]>
+         S<[ B<--nocrashhandler> ]>
+         S<[ B<--waitforwm> ]>
+         S<[ B<--style> I<style> ]>
+         S<[ B<--geometry> I<geometry> ]>
+         S<[ B<--resolve> I<filename> ]>
+         S<[ B<--log> I<filename> ]>
+         S<[ B<--annotate> I<filename> ]>
+         S<[ I<directory> ]>
+
+=head1 DESCRIPTION
+
+Cervisia is a graphical user interface for the Concurrent Versions
+System. It is based on the KDE libraries and therefore shares 
+their Look'n'Feel, configuration and help system.
+
+=head1 OPTIONS
+
+Cervisia accepts the following options:
+
+=over
+
+=item I<directory>
+
+Tells Cervisia to open the sandbox in I<directory> at startup
+
+=item B<--resolve> I<filename> 
+
+Shows a resolve dialog for the given file
+
+=item B<--log> I<filename> 
+
+Shows a log dialog for the given file
+
+=item B<--annotate> I<filename>
+
+Shows a annotation dialog for the given file
+
+=item B<--caption> I<caption>
+
+Sets the caption, i. e. what is shown in the title bar
+
+=item B<--icon> I<icon>
+
+Sets the program's icon (used by window managers and panels)
+
+=item B<--config> I<filename>
+
+Uses the given file for the configuration
+
+=item B<--nocrashhandler>
+
+Disables the crash handler. Use this to get core dumps
+
+=item B<--waitforwm>
+
+Waits for a WM_NET compatible windowmanager
+
+=item B<--style> I<style>
+
+Sets the application GUI style
+
+=item B<--geometry> I<geometry>
+
+Sets the geometry of the main window
+
+=head1 FILES
+
+F<_KDECONFDIR_/cervisiarc> - global configuration file
+
+F<$HOME/.kde/share/config/cervisiarc> - user-specific configuration file
+
+
+=head1 SEE ALSO
+
+F<_KDEHTMLDIR_/en/cervisia/index.html>
+
+L<cvs(1)>
+
+F<http://cervisia.kde.org/>
+
+=head1 AUTHOR
+
+Cervisia was originally developed by Bernd Gehrmann and is now maintained by
+Christian Loose <christian.loose@kdemail.net>.
+
+=head1 REPORTING BUGS
+
+Report bugs at http://bugs.kde.org.

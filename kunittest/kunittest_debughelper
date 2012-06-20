@@ -1,0 +1,106 @@
+#  Copyright (C)  2005  Jeroen Wijnhout <Jeroen.Wijnhout@kdemail.net>
+# 
+#  Redistribution and use in source and binary forms, with or without
+#  modification, are permitted provided that the following conditions
+#  are met:
+# 
+#  1. Redistributions of source code must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#  2. Redistributions in binary form must reproduce the above copyright
+#    notice, this list of conditions and the following disclaimer in the
+#    documentation and/or other materials provided with the distribution.
+# 
+#  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+#  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+#  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+#  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+#  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+#  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+#  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+#  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+#  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+#  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+use DCOP;
+
+my $app = $ARGV[0]; shift @ARGV;
+my $dcopid = "";
+my $testername = "";
+my $reading_debug = 0;
+my $debug="";
+my $runnergui;
+
+my $client = new DCOP;
+$client->attach();
+
+while (<>)
+{
+    $runnergui = getDCOPObject();
+    my $line = $_;
+
+    print $_;
+
+    if ( $line =~ /KUnitTest_Debug_End\[.*\]/ )
+    {
+        $ret = $runnergui->addDebugInfo($testername, $debug);
+
+        $debug = "";
+
+        # stop reading
+        $reading_debug = 0;
+    }
+    elsif ( $line =~ /KUnitTest_Debug_EndSlot\[.*\]/ )
+    {
+        $ret = $runnergui->addSlotDebugInfo($testername, $slotname, $debug);
+
+        $line = "";
+        $debug = "";
+        $slotname = "";
+    }
+    elsif ( $line =~ /KUnitTest_Debug_BeginSlot\[(.*)\]/ )
+    {
+        $slotname = $1;
+        $line = "";
+    }
+
+    if ( $reading_debug )
+    {
+        if ( $line =~ /^check:(.*\[[0-9]+\])/ )
+        {
+            $line = $1.":\n";
+        }
+
+        $debug = $debug.$line;
+    }    
+    
+    if ( $line =~ /KUnitTest_Debug_Start\[(.*)\]/ )
+    {
+        $testername = $1;
+        $reading_debug = 1;
+        $debug="";
+    }
+}
+
+sub getDCOPObject
+{
+    if ( $dcopid eq "" )
+    {
+        $allapps = $client->registeredApplications();
+        my $i = 0;
+        while ( ! ($allapps->[$i] eq "") )
+        {
+            if ( $allapps->[$i] =~ /$app/ )
+            {
+                print "found: ".$allapps->[$i]."\n";
+                $dcopid = $allapps->[$i];
+                break;
+            }
+        
+            $i = $i + 1;
+        }
+
+        $object = $client->createObject($dcopid, "Runner"); 
+    }
+
+    return $object;
+}

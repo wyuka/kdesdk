@@ -1,0 +1,21 @@
+KBytesEdit widget modul
+=======================
+part of the Okteta project, made within the KDE community.
+
+Copyright: 2003-2011 Friedrich W. H. Kossebau <kossebau@kde.org>
+
+Author/Maintainer: Friedrich W. H. Kossebau <kossebau@kde.org>
+
+
+description:
+------------
+This module delivers a service for the service type "KHexEdit/KBytesEdit".
+It is a hex edit widget that operates on an array of chars given by
+the programmer.
+It serves right now the interfaces
+ValueColumnInterface, CharColumnInterface, ZoomInterface, ClipBoardInterface.
+
+
+installing:
+-----------
+Installs the .desktop file describing the service and the module library.

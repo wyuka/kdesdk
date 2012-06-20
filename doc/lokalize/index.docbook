@@ -1,0 +1,428 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN"
+"dtd/kdex.dtd" [
+<!ENTITY lokalize "Lokalize">
+<!ENTITY kaider "Lokalize">
+<!ENTITY kappname "Lokalize">
+<!ENTITY package "kdesdk">
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % English "INCLUDE">
+]>
+<book id="lokalize" lang="&language;">
+<bookinfo>
+<title>The &lokalize; Handbook</title>
+<authorgroup>
+<author>
+<firstname>Nick</firstname>
+<surname>Shaforostoff</surname>
+<affiliation><address><email>shaforostoff@kde.ru</email></address></affiliation>
+</author>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+
+<copyright>
+<year>2007-2009</year><holder>Nick Shaforostoff</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>2009-05-09</date>
+<releaseinfo>1.0</releaseinfo>
+
+<abstract>
+<para>
+&lokalize; is a computer-aided translation system that focuses on productivity and
+quality assurance.  It has components usual for CAT tools: translation memory, glossary, 
+and also a unique translation merging (synchronization) capability.
+It is targeted for software translation and also integrates external conversion tools for freelance office document translation.
+</para>
+</abstract>
+
+<keywordset>
+<keyword>&lokalize;</keyword>
+<keyword>localization</keyword>
+<keyword>l10n</keyword>
+<keyword>internationalization</keyword>
+<keyword>i18n</keyword>
+<keyword>translation</keyword>
+<keyword>globalization</keyword>
+<keyword>g11n</keyword>
+<keyword>XLIFF</keyword>
+<keyword>gettext</keyword>
+<keyword>OpenDocument</keyword>
+<keyword>KBabel</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>
+When you start &lokalize; first time, you will see an empty <guilabel>Project Overview</guilabel> tab.
+Lokalize workflow implies that you start with creating/opening a project.
+</para>
+<para>
+If you are working along, chances are you are going to translate OpenDocument file.
+To do this select <menuchoice><guimenu>Project</guimenu><guimenuitem>Create new project</guimenuitem></menuchoice>.
+The wizard will ask you about your source document, convert it to &lokalize; internal format, XLIFF, and create project for it.
+After you finish translating choose <menuchoice><guimenu>Tools</guimenu><guimenuitem>Merge into ODF</guimenuitem></menuchoice> to integrate your translation into a copy of source document.
+</para>
+
+<para>
+If you are doing translations for KDE, then either you will already have &lokalize; project file in your languages folder (usually named <filename>index.lokalize</filename>),
+or you can select <menuchoice><guimenu>Project</guimenu><guimenuitem>Create new project</guimenuitem></menuchoice>
+and the wizard will download translation files for your language and will create project for you.
+</para>
+
+<para>
+Translation files are opened in separate tab, with two big multi-line edits as well as a bunch of <emphasis>toolviews</emphasis>.
+These views can be stacked (similar to tabs), shown separately, or hidden.
+Translation files consist of many English-target pairs called <emphasis>units</emphasis>.
+A <emphasis>unit</emphasis> typically correspond to a single string in the
+user interface, or one paragraph in the documentation. The purpose of the first
+multi-line edit is to display the original part of the pair. The purpose of
+the second multi-line edit is to display the translation. You can navigate
+through the <emphasis>units</emphasis> via the <guilabel>Translation Units</guilabel> view or by using <keycap>Page Down</keycap> and <keycap>Page
+Up</keycap>.
+</para>
+
+<tip>
+<para>
+It is recommended that you get used to the keyboard shortcuts instead of the
+menus and toolbars for increased productivity. For example, use the
+<keycombo>&Ctrl;<keycap>L</keycap></keycombo> to focus <guilabel>Quick search</guilabel>
+input line to filter unit list in <guilabel>Translation Units</guilabel> view.
+Once you are done, press <keycap>Page Down</keycap> to start moving along the filtered list.
+</para>
+</tip>
+
+<para>
+A unit may be <emphasis>translated</emphasis> or <emphasis>untranslated</emphasis>.
+A translation of a translated unit may be <emphasis>ready</emphasis> or <emphasis>not ready</emphasis> (also called <emphasis>fuzzy</emphasis> sometimes).
+If the unit is not ready, its translation is rendered in italics.
+&lokalize; allows you to easily navigate through the file according to the state of their translation.
+See <guilabel>Go</guilabel> menu for the shortcuts.
+When navigating, untranslated units are treated as not ready.
+Also you may use filtering feature of <guilabel>Translation Units</guilabel> toolview.
+Pressing <keycap>Page Down</keycap> actually takes you to the next unit in filtered/sorted list of that toolview.
+</para>
+
+<para>
+If you are working with translation files in XLIFF format (definitely the case when you translate OpenDocument),
+then extended states are available (<emphasis>new</emphasis>, <emphasis>needs review</emphasis>, <emphasis>approved</emphasis>, &etc;).
+You may select them in drop-down menu of <guilabel>Approved</guilabel> button in the toolbar.
+Classification of the state as <emphasis>ready</emphasis> or <emphasis>not ready</emphasis> depends on the current <emphasis>workflow phase</emphasis> (<emphasis>translation</emphasis>, <emphasis>review</emphasis>, <emphasis>approval</emphasis>).
+A default phase for you depends on your <emphasis>role</emphasis> in the project (set in project settings).
+Each unit usually contains information about phase it was changed last time, 
+and for each phase its owner is logged to the file.
+</para>
+
+</chapter>
+
+<chapter id="projects">
+<title>Projects</title>
+
+<para>
+The projects are one of the main concepts in &lokalize;. A project is represented by
+a file that contains paths, folders with translations, templates, and other files: 
+glossary file, automation scripts, translation memories.
+Whenever &lokalize; opens a file without a project loaded, it will search for a project file in the parent folders (up to four levels).
+Alternatively, you can specify the project file via the <userinput>--project</userinput> flag
+when starting &lokalize; from the command line.
+</para>
+
+<para>
+For each project you select your role in it (<emphasis>translator</emphasis>, <emphasis>reviewer</emphasis>, <emphasis>approver</emphasis>),
+which in turn affects a workflow phase &lokalize; automatically picks up for files you edit.
+</para>
+
+<note>
+<para>
+Translation memories (unlike project files, glossary and scripts) are not shared between the translation team members,
+as they are created and stored under the user's home folder, meaning that the translation
+memories for all of the projects are stored in the same folder and thus can be used
+when other projects are opened.
+</para>
+</note>
+
+<sect1 id="project-view">
+<title>Project Overview tab</title>
+
+<para>
+The <guilabel>Project Overview</guilabel> tab displays a file tree with statistics for a current project,
+such as the percentage of translated units completed and the last translator.
+It allows you to open a selected file in new tab of the current &lokalize;, window.
+</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="glossary">
+<title>Glossary</title>
+
+<para>
+Have you ever become tired of typing the same long text sequence several times
+just because it would take more time to find its translation for a copy and
+paste? Now you will only have to find the (frequent) word sequence in the
+<guilabel>Glossary View</guilabel>, and then insert it by pressing a shortcut.
+</para>
+
+<para>
+Of course the glossary should be populated with word sequences first. &lokalize;
+has a handy glossary editor that allows an explicit search over the entire
+glossary.
+</para>
+
+<screenshot>
+<screeninfo>Glossary view in the bottom right corner displays glossary entries appropriate for the current unit</screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="glossary.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase>Glossary view in the bottom right corner displays glossary entries appropriate for the current unit</phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+
+</chapter>
+
+<chapter id="tm">
+<title>Translation Memory</title>
+
+<para>
+The <guilabel>Translation Memory</guilabel> view allows you to drag and drop a
+folder with translation files from say Dolphin into the view,
+and then, within few minutes, translation suggestions will be shown automatically on the unit switch.
+To insert the translation suggestions into the file, use 
+<keycombo>&Ctrl;<keycap>1</keycap></keycombo>, 
+<keycombo>&Ctrl;<keycap>2</keycap></keycombo> and so on, depending on the number of suggestion.
+</para>
+
+<para>
+Pressing <keycombo><keycap>F7</keycap></keycombo> will open <guilabel>Translation Memory</guilabel> tab, which allows free querying TM.
+Clicking a search result will open corresponding file on corresponding unit.
+If you want to quickly open some file in the project (and it is added to TM), then instead of browsing <guilabel>Project Overview</guilabel>
+you just type its name into <guilabel>File mask</guilabel> field accompanied by '*'.
+</para>
+
+<para>
+TM engine indexes all entries, including non-ready and untranslated ones.
+This allows it to completely replace Search-in-Files feature which required scanning every file in the project each time a search is done.
+</para>
+
+<screenshot>
+<screeninfo>&lokalize; with translation memory search results for the current unit</screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="tmview.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase>&lokalize; with translation memory search results for the current unit</phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+
+</chapter>
+
+
+<chapter id="sync">
+<title>Translation Synchronization Capabilities</title>
+
+<para>
+The <guilabel>Sync Mode</guilabel> (previously known as <guilabel>Merge Mode</guilabel>)
+saves a great deal of time for the editors, and for cases 
+when two or more translators are working simultaneously on the same file,
+or when one has to maintain translations for several branches of software.
+</para>
+
+<para>
+&lokalize; allows quick navigation through units that differ, and displays
+word-by-word differences. Also, &lokalize; has two Sync views - <guilabel>Primary Sync</guilabel> and <guilabel>Secondary Sync</guilabel>.
+They are identical, but the former is usually used to merge translations and second to keep in sync translations for two software branches.
+</para>
+
+<para>
+After you copied translation from auxiliary file (<emphasis>synchronized</emphasis> it),
+any subsequent changes made to this unit will be replicated back to auxiliary file.
+</para>
+
+<sect1 id="file-merge">
+<title>Merging</title>
+<para>
+One use of <guilabel>Sync Mode</guilabel> is reviewing changes made by (new)
+contributors, when you cannot be sure of the quality of the work done.
+</para>
+<para>
+Open a base file, then drop its changed version into the <guilabel>Primary Sync</guilabel> view,
+followed by <keycombo>&Alt;<keycap>Down</keycap></keycombo> or <keycombo>&Alt;
+<keycap>Up</keycap></keycombo> (remember that shortcuts may be modified in a usual way for all &kde; applications)
+to navigate through entries that are different.
+</para>
+<screenshot>
+<screeninfo>&lokalize; used for merging changes in translation</screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="sync.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase>&lokalize; used for merging changes in translation</phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+
+</sect1>
+
+<sect1 id="file-sync">
+<title>Replication</title>
+<para>
+<guilabel>Sync Mode</guilabel> may also be used to make changes to translation for
+two branches simultaneously.
+Set <guilabel>Branch folder</guilabel> path in your project options to the path that corresponds to
+base folder of the branch, and <guilabel>Secondary Sync</guilabel> view will automatically open
+files from branch. Then, each time you make changes in files of your main branch,
+they will automatically be replicated to the branch
+(of course, if it contains the same English string).
+</para>
+<para>
+For example, if you work on KDE translation, you can checkout trunk to <filename class="directory">/home/xx/hacking/kde/trunk/l10n-kde4/YOUR_LANG</filename>
+and branch to <filename class="directory">/home/xx/hacking/kde/branches/stable/l10n-kde4/YOUR_LANG</filename>.
+Create &lokalize; project: <filename>/home/xx/hacking/kde/trunk/l10n-kde4/YOUR_LANG/project.lokalize</filename> and 
+set <filename class="directory">BranchDir=../../../branches/stable/l10n-kde4/YOUR_LANG</filename>, then work via this project,
+and commit changes in both trunk and branch folders.
+</para>
+</sect1>
+
+
+<sect1 id="alt-trans">
+<title>Alternate Translations</title>
+
+<para>
+Each unit may have several <emphasis>alternate translations</emphasis> associated with it.
+Such translations may appear during file update, when the source string is slightly changed.
+In this case the old translation with it's (old) source is moved to alternate translations list, so that they are not lost.
+</para>
+<para>
+When translating software, usually gettext tools are used to prepare translation files.
+When original text changes, gettext tools update translation files and mark entries with changed original text as <emphasis>fuzzy</emphasis> (or <emphasis>non-ready</emphasis> in other terminology).
+They store previous original text so that translators could see what changes exactly were made.
+&lokalize; simplifies life of translator and highlights parts of original text that were changed in <guilabel>Alternate Translations</guilabel> view.
+</para>
+
+<screenshot>
+<screeninfo>&lokalize; highlighting parts of original text that were changed since translation was last reviewed</screeninfo>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="original-diff.png" format="PNG"/>
+    </imageobject>
+    <textobject>
+      <phrase>&lokalize; highlighting parts of original text that were changed since translation was last reviewed</phrase>
+    </textobject>
+  </mediaobject>
+</screenshot>
+
+
+</sect1>
+
+</chapter>
+
+<chapter id="scripting">
+<title>Scripting &lokalize;</title>
+
+<para>
+&lokalize; is extensible using scripts in several interpreted languages, including Python and JavaScript.
+Scripts are usually integrated into &lokalize; UI as menu actions (to which you may assign a keyboard shortcut).
+The location and name of menu entry for the script is defined in its accompanying .rc file.
+On each project open &lokalize; scans <filename>PROJECTDIR/lokalize-scripts</filename> folder for .rc files and adds them to a <emphasis>cache</emphasis> file called
+<filename>PROJECTDIR/lokalize-scripts/scripts.rc</filename> (so you shouldn't generally want to add it project's version control system).
+RC files also contain script paths, which may be relative to .rc file folder, or to a system scripts folder - they are tried both (actually they <emphasis>should</emphasis> be relative if you want to share .rc file with other people in your project).
+So you for example can specify <filename>../../scripts/lokalize/opensrc.py</filename> to load script from <ulink url="http://websvn.kde.org/trunk/l10n-kde4/scripts/lokalize/">global kde4-l10n scripts folder</ulink> (&ie; not specific to your language).
+</para>
+<para>
+Examples of .rc files may be found in &lokalize; install folder (usually <filename>/usr/share/kde4/apps/lokalize/scripts/</filename>)
+and in <ulink url="http://websvn.kde.org/trunk/l10n-kde4/scripts/lokalize/">KDE repository</ulink>.
+<ulink url="http://websvn.kde.org/trunk/l10n-kde4/ru/lokalize-scripts/">Here</ulink> you can find more script examples, including JavaScript-based <filename>check-gui.js</filename> that runs automatically on each file save
+(this is achieved via special option in .rc file).
+If you're familiar with Python or JavaScript, the code should be self-explanatory.
+</para>
+<para>
+Below are links to API references. Everything marked as <emphasis>Q_SCRIPTABLE</emphasis> may be used from scripts.
+</para>
+
+<itemizedlist>
+<listitem>
+<para>
+<ulink url="http://api.kde.org/4.x-api/kdesdk-apidocs/lokalize/html/classEditorTab.html">Editor</ulink> object API reference
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="http://api.kde.org/4.x-api/kdesdk-apidocs/lokalize/html/classLokalizeMainWindow.html">Lokalize</ulink> object API reference
+</para>
+</listitem>
+<listitem>
+<para>
+<ulink url="http://api.kde.org/4.x-api/kdesdk-apidocs/lokalize/html/classProjectTab.html">Project</ulink> object API reference
+</para>
+</listitem>
+</itemizedlist>
+
+
+</chapter>
+
+<chapter id="credits">
+<title>Credits and License</title>
+
+<para>
+&lokalize;
+</para>
+
+<para>
+Program Copyright &copy; 2007-2009, Nick Shaforostoff
+<email>shaforostoff@kde.ru</email>
+</para>
+
+<para>
+Some code was taken from &kbabel;, the &lokalize; predecessor.
+</para>
+
+<para>
+Documentation Copyright &copy; 2007-2009 Nick Shaforostoff
+<email>shaforostoff@kde.ru</email>
+</para>
+
+<para>
+Author:
+<itemizedlist>
+<listitem>
+<para>
+Nick Shaforostoff <email>shaforostoff AT kde.ru</email>
+</para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para>See the <ulink
+url="http://userbase.kde.org/lokalize">&lokalize; homepage</ulink> for more details.</para>
+
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+&underFDL;
+&underGPL;
+
+</chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=2:sw=2:tw=78:noet
+-->

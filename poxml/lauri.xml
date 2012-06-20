@@ -1,0 +1,241 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+  <!ENTITY % English "INCLUDE" > <!-- change language only here -->
+  <!ENTITY lauri "<emphasis>Lauri</emphasis>" > <!ENTITY i18n-file-quit "<menuchoice><shortcut><keycombo action='simul'>&Ctrl;<keycap>Q</keycap></keycombo></shortcut><guimenu>File</guimenu><guimenuitem>Quit</guimenuitem></menuchoice>">
+]>
+
+<book>
+
+
+<bookinfo>
+<date>06/08/2000</date>
+<releaseinfo>0.05.00</releaseinfo>
+
+<!-- *********************** Test **************** -->
+
+<title>test document</title>
+<author><firstname>Stephan</firstname><surname>Kulow</surname></author>
+
+<abstract><para>This is nonsense</para></abstract>
+<keywordset><keyword>KDE</keyword></keywordset>
+
+</bookinfo>
+
+<chapter id="hello">
+<title>&quot;Text&quot; for &lauri;</title>
+<sect1>
+<title>Section 1</title>
+<sect2>
+<title>Section 1.1</title>
+  <anchor id="try"/>
+       <para><emphasis><emphasis role="blah">Warum kann ich
+        meinem Rechner nicht einfach
+        ausschalten?</emphasis></emphasis>Hier noch</para>
+    <para><application>me</application> can't be turned off.</para>
+<para>
+  <note><para>
+    Leading &quot;Text&quot; for &lauri;
+  </para></note>
+  <caution><para>we pretend her name was Höpfner, but that <anchor id="help"/> is a good name too</para></caution>
+  <keycap>
+    Shift
+  </keycap>
+  <keycap>
+    help
+  </keycap><indexterm><primary>kde</primary></indexterm>
+  <tip><para>an archive of the
+developer's mailing list is at <ulink
+url="http://lists.kde.org/?l=kde-kmail&amp;r=1&amp;w=2">lists.kde.org</ulink>.
+  </para></tip>
+</para>
+<!-- TRANS:GIVE_ME_CREDIT -->
+
+<para>
+  <variablelist>
+    <varlistentry>
+      <term>
+         Text 1
+      </term>
+      <listitem>
+         <para id="blah">
+            Text 2
+           <note>
+             <para>
+               Text 3 "everything"
+		<variablelist><varlistentry><term>Everything</term><listitem><para>Is correct</para></listitem></varlistentry></variablelist>
+		<variablelist><varlistentry><term>Nothing</term><listitem><para>Is wrong</para></listitem></varlistentry></variablelist>
+		<footnote>
+                  <para>
+                     Text 4 \"even more\"
+                  </para>
+		  <para>
+		    <note>
+			<para>
+                           Text 4 \"even less\"
+		        </para>
+ 		    </note>
+                  </para>
+               </footnote>
+             </para>
+           </note>
+         </para>
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+    <term><anchor id="new"/><menuchoice>
+<shortcut><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></shortcut>
+<guimenu><accel>F</accel>ile</guimenu><guimenuitem><accel>N</accel>ew</guimenuitem></menuchoice></term>
+    <listitem><para><action>This starts a new Document in a new instance of the
+editor.</action></para>
+</listitem>
+   </varlistentry>
+  </variablelist>
+</para>
+</sect2>
+         <sect2 id="xml-format">
+	 <title>What XML looks like</title>
+
+         <para>
+            Here is an example of an XML file used
+            by <application>Columbo</application> to describe a search site on the
+            Internet:
+         </para>
+         <para>
+            <programlistingco>
+               <areaspec>
+                  <area id="xml.doctype" coords="1"/>
+                  <area id="xml.rootel" coords="2"/>
+                  <area id="xml.nestedel" coords="9"/>
+               </areaspec>
+               <programlisting>
+<![CDATA[<!DOCTYPE search>
+<search 
+   name="Altavista" 
+   channel="web"
+   method="get"
+   action="http://www.altavista.com/cgi-bin/query"
+>
+
+   <input name="pg" value="q"/>
+   <input name="sc" value="on"/>
+   <input name="hl" value="on"/>
+   <input name="kl" value="XX"/>
+   <input name="stype" value="stext"/>
+   <input name="q" user="true"/>
+
+   <interpret
+      resultListStart="&lt;dl&gt;"
+      resultItemStart="&lt;dt&gt;"
+      relevanceStart=""
+      resultListEnd="&lt;/td&gt;"
+      resultItemEnd="&lt;/dl&gt;"
+      relevanceEnd=""
+   />
+</search>]]>
+               </programlisting>
+               <calloutlist>
+                  <callout arearefs="xml.doctype">
+                     <para>
+                        This instruction is normally used to declare the DTD of the
+                        document. Here no DTD is used, and only the name of the root
+                        element (<varname>search</varname>) appears.
+                     </para>
+                  </callout>
+                  <callout arearefs="xml.rootel">
+                     <para>
+                        <sgmltag class="starttag">search</sgmltag> begins the root
+                        element. Here, it extends to the end of the document
+                        (<sgmltag class="endtag">search</sgmltag>).
+                     </para>
+                  </callout>
+                  <callout arearefs="xml.nestedel">
+                     <para>
+                        This is an example of an empty element. Empty elements do not
+                        need a closing tag (which would be
+                        <varname>&lt;/input&gt;</varname> in this case).
+                     </para>
+                  </callout>
+               </calloutlist>
+            </programlistingco>
+         </para>
+         
+         </sect2>
+<sect2>
+<title>The ugly part</title>
+<para>
+  Ending Text:
+
+<literallayout>
+Matthias Hoelzer
+KDE-Verein i.G.
+Account-Nr. 2798296
+
+Staedtische Sparkasse Wuerzburg
+Hofstrasse 9
+97070 Wuerzburg
+Germany
+BLZ 790 500 00
+SWIFT-Address: BYLA DE 77
+
+print "$b4 /path/to/KDE/libs/libpng.a $af\n"; \
+you see it here
+whereever
+</literallayout>
+</para>
+<para>
+<screen>
+Expect       ogin:           <lineannotation># remember, we do ordinary terminal login</lineannotation>
+ID           ""              <lineannotation># kppp sends the id you configured in the main dialog</lineannotation>
+Expect       for userxyz:    <lineannotation># a list of available numbers is shown, the user should choose one</lineannotation> 
+Send         userxyz-home    <lineannotation># the user wants to be called back on their home number</lineannotation>
+Expect       ogin:           <lineannotation># The callback process is now running, a new connection, and so a new login.</lineannotation>
+ID
+Expect       assword:        <lineannotation># Now send your password</lineannotation>
+Expect       &gt;               <lineannotation># Wait for the command prompt (the prompt may vary)</lineannotation>
+Send         start_ppp       <lineannotation># this command starts the pppd</lineannotation>
+</screen>
+</para>
+
+<para>
+<screen>
+Send                         <lineannotation># send an empty string</lineannotation>
+Expect           ID:
+Send             itsme
+Expect           word:
+Send             forgot
+Expect           granted
+Send             ppp
+</screen>
+
+<programlisting>
+-&gt;  #include &lt;qpixmap.h&gt;
+-&gt;  #include &lt;qpen.h&gt;
+
+     class KScribbleDoc
+     {
+
+-&gt;   protected:
+
+-&gt;       QPen currentPen(){ return pen;};   
+                
+-&gt;       int penWidth()
+-&gt;          { return pen.width(); }
+
+      public slots:
+         void updateAllViews(KScribbleView *sender);
+        
+      protected:
+        
+-&gt;      QPixmap buffer;
+        
+      private:
+-&gt;      QPen pen;
+        /** the modified flag of the current document */
+        bool modified;
+</programlisting>
+</para>
+</sect2>
+</sect1>
+</chapter>
+</book>
+
