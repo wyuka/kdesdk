@@ -23,8 +23,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PROPERTIESSTORAGE_H
 
 #include "catalogstorage.h"
-#include <translatable.h>
-#include <propertiesfiletype.h>
+#include <translatableqt.hpp>
+#include <propertiesfiletypeqt.hpp>
 
 class PropertiesStorage: public CatalogStorage
 {
@@ -91,8 +91,8 @@ private:
     CatalogString catalogString(int entry,  DocPosition::Part part) const;
 
 private:
-    Translatable *m_translatable;
-    FileType *m_fileType;
+    TranslatableQt *m_translatable;
+    FileTypeQt *m_fileType;
 };
 
 #endif

@@ -47,8 +47,9 @@ static const char* const binsourcesource[]={"bin-source","source"};
 PropertiesStorage::PropertiesStorage()
  : CatalogStorage()
 {
-    m_fileType = new PropertiesFileType();
-    m_translatable = new Translatable(m_fileType);
+    TranslatableQt::init();
+    m_fileType = new PropertiesFileTypeQt();
+    m_translatable = new TranslatableQt(m_fileType);
 }
 
 PropertiesStorage::~PropertiesStorage()
@@ -66,7 +67,9 @@ int PropertiesStorage::capabilities() const
 
 int PropertiesStorage::load(QIODevice* device)
 {
-    m_translatable->readFile(device);
+    QTextStream in(device);
+    QString inputContents = in.readAll();
+    m_translatable->readContents(inputContents);
     return 0;
 }
 
@@ -105,7 +108,7 @@ CatalogString PropertiesStorage::catalogString(int entry, DocPosition::Part part
         cs.string = "hello";
     else
         cs.string = "nomoskaar";*/
-    cs.string = m_translatable->findString(entry, "en");
+    cs.string = m_translatable->getStringForEntryIndex(entry, "en");
     return cs;
 }
 

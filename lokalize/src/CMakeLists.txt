@@ -13,11 +13,15 @@ if(HUNSPELL_FOUND)
     )
 endif(HUNSPELL_FOUND)
 
+find_package(Bong REQUIRED)
 find_package(BongQt REQUIRED)
+find_package(BongQtProperties REQUIRED)
 
 include_directories(
-        ${BONG_QT_INCLUDE_DIR}
-    )
+    ${BONG_INCLUDE_DIR}
+    ${BONGQT_INCLUDE_DIR}
+    ${BONGQT_PROPERTIES_INCLUDE_DIR}
+)
 
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/prefs
@@ -173,7 +177,7 @@ if(HUNSPELL_FOUND)
     target_link_libraries(lokalize ${HUNSPELL_LIBRARIES})
 endif(HUNSPELL_FOUND)
 
-target_link_libraries(lokalize bong_qt)
+target_link_libraries(lokalize bong bong-properties bongqt bongqt-properties)
 
 install(TARGETS lokalize ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
