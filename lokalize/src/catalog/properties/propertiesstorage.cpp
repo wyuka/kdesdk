@@ -60,7 +60,7 @@ PropertiesStorage::~PropertiesStorage()
 
 int PropertiesStorage::capabilities() const
 {
-    return 0; //KeepsNoteAuthors|MultipleNotes|Phases|ExtendedStates;
+    return 0;
 }
 
 //BEGIN OPEN/SAVE
@@ -85,30 +85,24 @@ bool PropertiesStorage::save(QIODevice* device, bool belongsToProject)
 
 int PropertiesStorage::size() const
 {
-    //return 20;//m_map.size();
     return m_translatable->entryCount();
 }
 
 //flat-model interface (ignores XLIFF grouping)
 
-/*CatalogString PropertiesStorage::catalogString(QDomElement unit,  DocPosition::Part part) const
-{
-    static const char* names[]={"source","target"};
-    CatalogString catalogString;
-    ContentEditingData data(ContentEditingData::Get);
-    catalogString.string=content(unit.firstChildElement( names[part==DocPosition::Target]), &data );
-    catalogString.tags=data.tags;
-    return catalogString;
-}*/
-
 CatalogString PropertiesStorage::catalogString(int entry, DocPosition::Part part) const
 {
     CatalogString cs;
-    /*if (part == DocPosition::Source)
-        cs.string = "hello";
-    else
-        cs.string = "nomoskaar";*/
-    cs.string = m_translatable->getStringForEntryIndex(entry, "en");
+    if (part == DocPosition::Source)
+    {
+        cs.string = m_translatable->getStringForEntryIndex(entry, "en");
+    }
+    else if (part == DocPosition::Target)
+    {
+        QString uik = m_translatable->getUikForEntryIndex(entry);
+        QString s = m_translatable->getStringForUik(uik, "en");
+        cs.string = s;
+    }
     return cs;
 }
 
@@ -137,52 +131,22 @@ QString PropertiesStorage::target(const DocPosition& pos) const
 
 void PropertiesStorage::targetDelete(const DocPosition& pos, int count)
 {
-    /*if (pos.entry<size())
-    {
-        ContentEditingData data(pos.offset,count);
-        content(targetForPos(pos.entry),&data);
-    }
-    else
-    {
-        //only bulk delete requests are generated
-        targetForPos(pos.entry).firstChildElement("external-file").setAttribute("href","");
-    }*/
+    //kDebug() << "targetDelete";
+
+    QString newString = target(pos);
+    newString.remove(pos.offset, count);
+    QString uik = m_translatable->getUikForEntryIndex(pos.entry);
+    m_translatable->addEntry(uik, pos.entry, QString(), "en", newString);
 }
 
 void PropertiesStorage::targetInsert(const DocPosition& pos, const QString& arg)
 {
-    /*kWarning()<<pos.entry<<arg;
-    QDomElement targetEl=targetForPos(pos.entry);
-    //BEGIN add <*target>
-    if (targetEl.isNull())
-    {
-        QDomNode unitEl=unitForPos(pos.entry);
-        QDomNode refNode=unitEl.firstChildElement("seg-source");//obey standard
-        if (refNode.isNull()) refNode=unitEl.firstChildElement(binsourcesource[pos.entry<size()]);
-        targetEl = unitEl.insertAfter(m_doc.createElement(bintargettarget[pos.entry<size()]),refNode).toElement();
-        targetEl.setAttribute("state","new");
+    //kDebug() << "targetInsert";
 
-        if (pos.entry<size())
-        {
-            targetEl.appendChild(m_doc.createTextNode(arg));//i bet that pos.offset is 0 ;)
-            return;
-        }
-    }
-    //END add <*target>
-    if (arg.isEmpty()) return; //means we were called just to add <taget> tag
-
-    if (pos.entry>=size())
-    {
-        QDomElement ef=targetEl.firstChildElement("external-file");
-        if (ef.isNull())
-            ef=targetEl.appendChild(m_doc.createElement("external-file")).toElement();
-        ef.setAttribute("href",arg);
-        return;
-    }
-
-    ContentEditingData data(pos.offset,arg);
-    content(targetEl,&data);
-    */
+    QString newString = target(pos);
+    newString.insert(pos.offset, arg);
+    QString uik = m_translatable->getUikForEntryIndex(pos.entry);
+    m_translatable->addEntry(uik, pos.entry, QString(), "en", newString);
 }
 
 void PropertiesStorage::targetInsertTag(const DocPosition& pos, const InlineTag& tag)
@@ -207,9 +171,8 @@ InlineTag PropertiesStorage::targetDeleteTag(const DocPosition& pos)
 
 void PropertiesStorage::setTarget(const DocPosition& pos, const QString& arg)
 {
-    Q_UNUSED(pos);
-    Q_UNUSED(arg);
-//TODO
+    QString uik = m_translatable->getStringForEntryIndex(pos.entry, "en");
+    m_translatable->addEntry(uik, pos.entry, QString(), "en", arg);
 }
 
 
@@ -248,52 +211,6 @@ QVector<AltTrans> PropertiesStorage::altTrans(const DocPosition& pos) const
     return result;
 }
 
-Phase PropertiesStorage::updatePhase(const Phase& phase)
-{
-    /*QDomElement phasegroup;
-    QDomElement phaseElem=phaseElement(m_doc,phase.name,phasegroup);
-    Phase prev=phaseFromElement(phaseElem);
-
-    if (phaseElem.isNull()&&!phase.name.isEmpty())
-    {
-        phaseElem=phasegroup.appendChild(m_doc.createElement("phase")).toElement();
-        phaseElem.setAttribute("phase-name",phase.name);
-    }
-
-    phaseElem.setAttribute("process-name", phase.process);
-    if (!phase.company.isEmpty()) phaseElem.setAttribute("company-name", phase.company);
-    phaseElem.setAttribute("contact-name", phase.contact);
-    phaseElem.setAttribute("contact-email",phase.email);
-    if (!phase.phone.isEmpty()) phaseElem.setAttribute("contact-phone",phase.phone);
-    phaseElem.setAttribute("tool-id",      phase.tool);
-    if (phase.date.isValid()) phaseElem.setAttribute("date",phase.date.toString(Qt::ISODate));*/
-    return Phase();
-}
-
-QList<Phase> PropertiesStorage::allPhases() const
-{
-    QList<Phase> result;
-    /*QDomElement file=m_doc.elementsByTagName("file").at(0).toElement();
-    QDomElement header=file.firstChildElement("header");
-    QDomElement phasegroup=header.firstChildElement("phase-group");
-    QDomElement phaseElem=phasegroup.firstChildElement("phase");
-    while (!phaseElem.isNull())
-    {
-        result.append(phaseFromElement(phaseElem));
-        phaseElem=phaseElem.nextSiblingElement("phase");
-    }*/
-    return result;
-}
-
-Phase PropertiesStorage::phase(const QString& name) const
-{
-    /*QDomElement phasegroup;
-    QDomElement phaseElem=phaseElement(m_doc,name,phasegroup);
-
-    return phaseFromElement(phaseElem);*/
-    return Phase();
-}
-
 QMap<QString,Tool> PropertiesStorage::allTools() const
 {
     QMap<QString,Tool> result;
@@ -316,176 +233,32 @@ QMap<QString,Tool> PropertiesStorage::allTools() const
 
 QStringList PropertiesStorage::sourceFiles(const DocPosition& pos) const
 {
-    QStringList result;
-
-    /*QDomElement elem = unitForPos(pos.entry).firstChildElement("context-group");
-    while (!elem.isNull())
-    {
-        if (elem.attribute("purpose").contains("location"))
-        {
-            QDomElement context = elem.firstChildElement("context");
-            while (!context.isNull())
-            {
-                QString sourcefile;
-                QString linenumber;
-                if (context.attribute("context-type")=="sourcefile")
-                    sourcefile=context.text();
-                else if (context.attribute("context-type")=="linenumber")
-                    linenumber=context.text();
-                if (!( sourcefile.isEmpty()&&linenumber.isEmpty() ))
-                    result.append(sourcefile+':'+linenumber);
-
-                context=context.nextSiblingElement("context");
-            }
-        }
-
-        elem=elem.nextSiblingElement("context-group");
-    }
-    //qSort(result);*/
-
-    return result;
+    return QStringList();
 }
-
-/*static void initNoteFromElement(Note& note, QDomElement elem)
-{
-    note.content=elem.text();
-    note.from=elem.attribute("from");
-    note.lang=elem.attribute("xml:lang");
-    if (elem.attribute("annotates")=="source")
-        note.annotates=Note::Source;
-    else if (elem.attribute("annotates")=="target")
-        note.annotates=Note::Target;
-    bool ok;
-    note.priority=elem.attribute("priority").toInt(&ok);
-    if (!ok) note.priority=0;
-}*/
 
 QVector<Note> PropertiesStorage::notes(const DocPosition& pos) const
-{
-    QList<Note> result;
-
-    /*QDomElement elem = entries.at(m_map.at(pos.entry)).firstChildElement("note");
-    while (!elem.isNull())
-    {
-        Note note;
-        initNoteFromElement(note,elem);
-        result.append(note);
-        elem=elem.nextSiblingElement("note");
-    }
-    qSort(result);*/
-    return result.toVector();
-}
-
-QVector<Note> PropertiesStorage::developerNotes(const DocPosition& pos) const
 {
     Q_UNUSED(pos);
     //TODO
     return QVector<Note>();
 }
 
+QVector<Note> PropertiesStorage::developerNotes(const DocPosition& pos) const
+{
+    QList<Note> result;
+
+    Note n;
+    n = (m_translatable->getUikForEntryIndex(pos.entry));
+    result.append(n);
+
+    n = (m_translatable->getNoteForEntryIndex(pos.entry));
+    result.append(n);
+    return result.toVector();
+}
+
 Note PropertiesStorage::setNote(DocPosition pos, const Note& note)
 {
-    //kWarning()<<int(pos.form)<<note.content;
-    /*QDomElement unit=unitForPos(pos.entry);
-    QDomElement elem;
-    Note oldNote;
-    if (pos.form==-1 && !note.content.isEmpty())
-    {
-        QDomElement ref=unit.lastChildElement("note");
-        elem=unit.insertAfter( m_doc.createElement("note"),ref).toElement();
-        elem.appendChild(m_doc.createTextNode(""));
-    }
-    else
-    {
-        QDomNodeList list=unit.elementsByTagName("note");
-        if (pos.form==-1) pos.form=list.size()-1;
-        if (pos.form<list.size())
-        {
-            elem = unit.elementsByTagName("note").at(pos.form).toElement();
-            initNoteFromElement(oldNote,elem);
-        }
-    }
-
-    if (elem.isNull()) return oldNote;
-
-    if (!elem.text().isEmpty())
-    {
-        ContentEditingData data(0,elem.text().size());
-        content(elem,&data);
-    }
-
-    if (!note.content.isEmpty())
-    {
-        ContentEditingData data(0,note.content); content(elem,&data);
-        if (!note.from.isEmpty()) elem.setAttribute("from",note.from);
-        if (note.priority) elem.setAttribute("priority",note.priority);
-    }
-    else
-        unit.removeChild(elem);
-    */
-
     return note;
-}
-
-QStringList PropertiesStorage::noteAuthors() const
-{
-    QSet<QString> result;
-    /*QDomNodeList notes=m_doc.elementsByTagName("note");
-    int i=notes.size();
-    while (--i>=0)
-    {
-        QString from=notes.at(i).toElement().attribute("from");
-        if (!from.isEmpty())
-            result.insert(from);
-    }*/
-    return result.toList();
-}
-
-QVector<Note> PropertiesStorage::phaseNotes(const QString& phasename) const
-{
-    //return ::phaseNotes(m_doc, phasename, false);
-    return QVector<Note>();
-}
-
-QVector<Note> PropertiesStorage::setPhaseNotes(const QString& phasename, QVector<Note> notes)
-{
-    QVector<Note> result=phaseNotes(phasename);
-
-    /*QDomElement phasegroup;
-    QDomElement phaseElem=phaseElement(m_doc,phasename,phasegroup);
-
-    foreach(const Note& note, notes)
-    {
-        QDomElement elem=phaseElem.appendChild(m_doc.createElement("note")).toElement();
-        elem.appendChild(m_doc.createTextNode(note.content));
-        if (!note.from.isEmpty()) elem.setAttribute("from",note.from);
-        if (note.priority) elem.setAttribute("priority",note.priority);
-    }*/
-
-    return result;
-}
-
-
-QString PropertiesStorage::setPhase(const DocPosition& pos, const QString& phase)
-{
-    /*targetInsert(pos,QString()); //adds <taget> if needed
-
-    QDomElement target=targetForPos(pos.entry);
-    QString result=target.attribute("phase-name");
-    if (phase.isEmpty())
-        target.removeAttribute("phase-name");
-    else
-        target.setAttribute("phase-name",phase);
-
-    return result;*/
-    return QString();
-}
-
-QString PropertiesStorage::phase(const DocPosition& pos) const
-{
-    //QDomElement target=targetForPos(pos.entry);
-    //return target.attribute("phase-name");
-    return QString();
 }
 
 QStringList PropertiesStorage::context(const DocPosition& pos) const
@@ -513,42 +286,14 @@ bool PropertiesStorage::isPlural(const DocPosition& pos) const
     return false;
 }
 
-/*static const char* const states[]={
-    "new", "needs-translation", "needs-l10n", "needs-adaptation", "translated",
-    "needs-review-translation", "needs-review-l10n", "needs-review-adaptation", "final",
-    "signed-off"};
-
-
-static TargetState stringToState(const QString& state)
-{
-    int i=sizeof(states)/sizeof(char*);
-    while (--i>0 && state!=states[i])
-        ;
-    return TargetState(i);
-}
-
-*/
-TargetState PropertiesStorage::setState(const DocPosition& pos, TargetState state)
-{
-    /*targetInsert(pos,QString()); //adds <taget> if needed
-    QDomElement target=targetForPos(pos.entry);
-    TargetState prev=stringToState(target.attribute("state"));
-    target.setAttribute("state",states[state]);
-    return prev;*/
-    return Translated;
-}
-
-TargetState PropertiesStorage::state(const DocPosition& pos) const
-{
-    /*QDomElement target=targetForPos(pos.entry);
-    if (!target.hasAttribute("state") && unitForPos(pos.entry).attribute("approved")=="yes")
-        return SignedOff;
-    return stringToState(target.attribute("state"));*/
-    return Translated;
-}
-
 bool PropertiesStorage::isEmpty(const DocPosition& pos) const
 {
+    //source
+    QString uik = m_translatable->getUikForEntryIndex(pos.entry);
+    //target
+    QString string = m_translatable->getStringForUik(uik, "en");
+    if (string.isEmpty())
+        return true;
     /*ContentEditingData data(ContentEditingData::CheckLength);
     return content(targetForPos(pos.entry),&data).isEmpty();*/
     return false;

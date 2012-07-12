@@ -55,12 +55,7 @@ public:
     void setTarget(const DocPosition& pos, const QString& arg);//called for mergeCatalog
     void targetInsertTag(const DocPosition&, const InlineTag&);
     InlineTag targetDeleteTag(const DocPosition&);
-    Phase updatePhase(const Phase& phase);
-    QList<Phase> allPhases() const;
-    Phase phase(const QString& name) const;
     QMap<QString,Tool> allTools() const;
-    QVector<Note> phaseNotes(const QString& phase) const;
-    QVector<Note> setPhaseNotes(const QString& phase, QVector<Note> notes);
 
     QStringList sourceFiles(const DocPosition& pos) const;
     QVector<AltTrans> altTrans(const DocPosition& pos) const;
@@ -68,11 +63,7 @@ public:
     ///@a pos.form is note number
     Note setNote(DocPosition pos, const Note& note);
     QVector<Note> notes(const DocPosition& pos) const;
-    QStringList noteAuthors() const;
     QVector<Note> developerNotes(const DocPosition& pos) const;
-
-    QString setPhase(const DocPosition& pos, const QString& phase);
-    QString phase(const DocPosition& pos) const;
 
     QStringList context(const DocPosition& pos) const;
 
@@ -81,9 +72,6 @@ public:
 
     bool isPlural(const DocPosition& pos) const;
     bool isEmpty(const DocPosition& pos) const;
-
-    TargetState state(const DocPosition& pos) const;
-    TargetState setState(const DocPosition& pos, TargetState state);
 
     QString mimetype()const{return "text/plain";}
 
