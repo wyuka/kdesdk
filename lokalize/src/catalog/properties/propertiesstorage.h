@@ -81,6 +81,8 @@ private:
 private:
     TranslatableQt *m_translatable;
     FileTypeQt *m_fileType;
+
+    QString m_inputContents;
 };
 
 #endif

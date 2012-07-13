@@ -71,13 +71,15 @@ int PropertiesStorage::load(QIODevice* device)
     QString inputContents = in.readAll();
     m_translatable->readContents(inputContents, "s");
     m_translatable->readContents(inputContents, "t");
+    m_inputContents = inputContents;
     return 0;
 }
 
 bool PropertiesStorage::save(QIODevice* device, bool belongsToProject)
 {
-    //QTextStream stream(device);
-    //m_doc.save(stream,2);
+    QTextStream out(device);
+    QString outputContents = m_translatable->writeContents(m_inputContents, "t");
+    out << outputContents;
     return true;
 }
 //END OPEN/SAVE
