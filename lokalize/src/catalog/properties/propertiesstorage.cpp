@@ -69,7 +69,8 @@ int PropertiesStorage::load(QIODevice* device)
 {
     QTextStream in(device);
     QString inputContents = in.readAll();
-    m_translatable->readContents(inputContents);
+    m_translatable->readContents(inputContents, "s");
+    m_translatable->readContents(inputContents, "t");
     return 0;
 }
 
@@ -95,12 +96,12 @@ CatalogString PropertiesStorage::catalogString(int entry, DocPosition::Part part
     CatalogString cs;
     if (part == DocPosition::Source)
     {
-        cs.string = m_translatable->getStringForEntryIndex(entry, "en");
+        cs.string = m_translatable->getStringForEntryIndex(entry, "s");
     }
     else if (part == DocPosition::Target)
     {
         QString uik = m_translatable->getUikForEntryIndex(entry);
-        QString s = m_translatable->getStringForUik(uik, "en");
+        QString s = m_translatable->getStringForUik(uik, "t");
         cs.string = s;
     }
     return cs;
@@ -136,7 +137,7 @@ void PropertiesStorage::targetDelete(const DocPosition& pos, int count)
     QString newString = target(pos);
     newString.remove(pos.offset, count);
     QString uik = m_translatable->getUikForEntryIndex(pos.entry);
-    m_translatable->addEntry(uik, pos.entry, QString(), "en", newString);
+    m_translatable->addEntry(uik, pos.entry, QString(), "t", newString);
 }
 
 void PropertiesStorage::targetInsert(const DocPosition& pos, const QString& arg)
@@ -146,7 +147,7 @@ void PropertiesStorage::targetInsert(const DocPosition& pos, const QString& arg)
     QString newString = target(pos);
     newString.insert(pos.offset, arg);
     QString uik = m_translatable->getUikForEntryIndex(pos.entry);
-    m_translatable->addEntry(uik, pos.entry, QString(), "en", newString);
+    m_translatable->addEntry(uik, pos.entry, QString(), "t", newString);
 }
 
 void PropertiesStorage::targetInsertTag(const DocPosition& pos, const InlineTag& tag)
@@ -171,8 +172,8 @@ InlineTag PropertiesStorage::targetDeleteTag(const DocPosition& pos)
 
 void PropertiesStorage::setTarget(const DocPosition& pos, const QString& arg)
 {
-    QString uik = m_translatable->getStringForEntryIndex(pos.entry, "en");
-    m_translatable->addEntry(uik, pos.entry, QString(), "en", arg);
+    QString uik = m_translatable->getStringForEntryIndex(pos.entry, "t");
+    m_translatable->addEntry(uik, pos.entry, QString(), "t", arg);
 }
 
 
@@ -291,7 +292,7 @@ bool PropertiesStorage::isEmpty(const DocPosition& pos) const
     //source
     QString uik = m_translatable->getUikForEntryIndex(pos.entry);
     //target
-    QString string = m_translatable->getStringForUik(uik, "en");
+    QString string = m_translatable->getStringForUik(uik, "t");
     if (string.isEmpty())
         return true;
     /*ContentEditingData data(ContentEditingData::CheckLength);
