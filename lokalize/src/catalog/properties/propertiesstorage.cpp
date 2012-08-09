@@ -60,7 +60,7 @@ PropertiesStorage::~PropertiesStorage()
 
 int PropertiesStorage::capabilities() const
 {
-    return 0;
+    return TwoFiles;
 }
 
 //BEGIN OPEN/SAVE
@@ -69,8 +69,15 @@ int PropertiesStorage::load(QIODevice* device)
 {
     QTextStream in(device);
     QString inputContents = in.readAll();
-    m_translatable->readContents(inputContents, "s");
     m_translatable->readContents(inputContents, "t");
+    return 0;
+}
+
+int PropertiesStorage::loadSource(QIODevice* device)
+{
+    QTextStream in(device);
+    QString inputContents = in.readAll();
+    m_translatable->readContents(inputContents, "s");
     m_inputContents = inputContents;
     return 0;
 }

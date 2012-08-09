@@ -50,6 +50,7 @@ public:
     virtual int capabilities() const=0;
 
     virtual int load(QIODevice* device)=0;
+    virtual int loadSource(QIODevice* device) {return 0;};
     virtual bool save(QIODevice* device, bool belongsToProject=false)=0;
 
     virtual int size() const=0;

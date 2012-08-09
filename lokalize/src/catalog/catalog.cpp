@@ -70,7 +70,7 @@
 #include <ktemporaryfile.h>
 
 
-static const char* const extensions[]={".po",".pot",".xlf"};
+static const char* const extensions[]={".po",".pot",".xlf",".properties"};
 
 static const char* const xliff_states[]={
         I18N_NOOP("New"),I18N_NOOP("Needs translation"),I18N_NOOP("Needs full localization"),I18N_NOOP("Needs adaptation"),I18N_NOOP("Translated"),
@@ -499,6 +499,7 @@ KAutoSaveFile* Catalog::checkAutoSave(const KUrl& url)
 
 int Catalog::loadFromUrl(const KUrl& url, const KUrl& saidUrl, int* fileSize)
 {
+    kDebug() << "in loadFromUrl";
     bool readOnly=false;
     if (url.isLocalFile())
     {
@@ -540,9 +541,27 @@ int Catalog::loadFromUrl(const KUrl& url, const KUrl& saidUrl, int* fileSize)
         else return UNKNOWNFORMAT;
     }
 
-    int line=storage->load(file);
+    bool twoFiles = storage->capabilities() & TwoFiles;
+    int line;
+    if (twoFiles)
+    {
+        kDebug() << url.path() << saidUrl.path();
+        line = storage->loadSource(file);
+        file->close();
 
-    file->close();
+        QFile* targetFile=new QFile(saidUrl.path());
+        targetFile->deleteLater();//kung-fu
+        targetFile->open(QIODevice::ReadOnly);
+
+        line |= storage->load(targetFile);
+        targetFile->close();
+    }
+    else
+    {
+        line = storage->load(file);
+        file->close();
+    }
+
     KIO::NetAccess::removeTempFile(target);
 
     if (KDE_ISUNLIKELY(line!=0 || (!storage->size() && (line=-1) ) ))

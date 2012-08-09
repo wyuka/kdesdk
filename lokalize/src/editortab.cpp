@@ -801,7 +801,7 @@ bool EditorTab::fileOpen(KUrl url, KUrl baseUrl, bool silent)
     {
         //Prevent crashes
         Project::instance()->model()->weaver()->suspend();
-        url=KFileDialog::getOpenFileName(baseUrl, "text/x-gettext-translation text/x-gettext-translation-template application/x-xliff text/plain",SettingsController::instance()->mainWindowPtr());
+        url=KFileDialog::getOpenFileName(baseUrl, "text/x-gettext-translation text/x-gettext-translation-template application/x-xliff text/plain", SettingsController::instance()->mainWindowPtr());
         Project::instance()->model()->weaver()->resume();
         //TODO application/x-xliff, windows: just extensions
         //originalPath=url.path(); never used
@@ -818,6 +818,19 @@ bool EditorTab::fileOpen(KUrl url, KUrl baseUrl, bool silent)
     }
     if (url.isEmpty())
         return false;
+
+    if (url.path().endsWith(".properties"))
+    {
+        KUrl sourceUrl;
+        Project::instance()->model()->weaver()->suspend();
+        sourceUrl=KFileDialog::getOpenFileName(url.directory(), "text/x-gettext-translation text/x-gettext-translation-template application/x-xliff text/plain", SettingsController::instance()->mainWindowPtr(), "Template for " + url.path());
+        Project::instance()->model()->weaver()->resume();
+        if (sourceUrl.isEmpty() || !sourceUrl.path().endsWith(".properties"))
+            return false;
+        saidUrl = url;
+        url = sourceUrl;
+        kDebug() << url.path() << saidUrl.path();
+    }
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
@@ -858,7 +871,8 @@ bool EditorTab::fileOpen(KUrl url, KUrl baseUrl, bool silent)
             }
 
             //enforce autosync
-            m_syncViewSecondary->mergeOpen(url);
+            if (!url.path().endsWith(".properties"))
+                m_syncViewSecondary->mergeOpen(url);
             
             if (!_project->isLoaded() && _project->desirablePath().isEmpty())
             {
