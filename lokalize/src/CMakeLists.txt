@@ -27,9 +27,10 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/prefs
     ${CMAKE_CURRENT_SOURCE_DIR}/common
     ${CMAKE_CURRENT_SOURCE_DIR}/catalog
+    ${CMAKE_CURRENT_SOURCE_DIR}/catalog/dtd
     ${CMAKE_CURRENT_SOURCE_DIR}/catalog/gettext
-    ${CMAKE_CURRENT_SOURCE_DIR}/catalog/xliff
     ${CMAKE_CURRENT_SOURCE_DIR}/catalog/properties
+    ${CMAKE_CURRENT_SOURCE_DIR}/catalog/xliff
     ${CMAKE_CURRENT_SOURCE_DIR}/cataloglistview
     ${CMAKE_CURRENT_SOURCE_DIR}/project
     ${CMAKE_CURRENT_SOURCE_DIR}/glossary
@@ -116,8 +117,9 @@ set(lokalize_SRCS
     catalog/gettext/importplugin.cpp
     catalog/gettext/gettextimport.cpp
     catalog/gettext/gettextexport.cpp
-    catalog/xliff/xliffstorage.cpp
+    catalog/dtd/dtdstorage.cpp
     catalog/properties/propertiesstorage.cpp
+    catalog/xliff/xliffstorage.cpp
 )
 
 kde4_add_ui_files(lokalize_SRCS
@@ -177,7 +179,7 @@ if(HUNSPELL_FOUND)
     target_link_libraries(lokalize ${HUNSPELL_LIBRARIES})
 endif(HUNSPELL_FOUND)
 
-target_link_libraries(lokalize bong bong-properties bongqt bongqt-properties)
+target_link_libraries(lokalize bong bong-properties bong-dtd bongqt bongqt-properties bongqt-dtd)
 
 install(TARGETS lokalize ${INSTALL_TARGETS_DEFAULT_ARGS} )
 

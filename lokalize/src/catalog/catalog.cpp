@@ -48,6 +48,7 @@
 #include "xliffstorage.h"
 
 #include "propertiesstorage.h"
+#include "dtdstorage.h"
 
 #include "mergecatalog.h"
 
@@ -70,7 +71,7 @@
 #include <ktemporaryfile.h>
 
 
-static const char* const extensions[]={".po",".pot",".xlf",".properties"};
+static const char* const extensions[]={".po",".pot",".xlf",".properties",".dtd"};
 
 static const char* const xliff_states[]={
         I18N_NOOP("New"),I18N_NOOP("Needs translation"),I18N_NOOP("Needs full localization"),I18N_NOOP("Needs adaptation"),I18N_NOOP("Translated"),
@@ -529,6 +530,8 @@ int Catalog::loadFromUrl(const KUrl& url, const KUrl& saidUrl, int* fileSize)
         storage=new XliffStorage;
     else if (url.fileName().endsWith(".properties"))
         storage=new PropertiesStorage;
+    else if (url.fileName().endsWith(".dtd"))
+        storage=new DtdStorage;
     else
     {
         //try harder
