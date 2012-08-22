@@ -24,15 +24,17 @@ Building kdesdk...
 % make
 % sudo make install
 
-Note to Ubuntu Users...
-
 If you see this cmake message:
 
 ERROR: cmake/modules/FindKDE4Internal.cmake not found
 
-The solution is:
+For Ubuntu users, The solution is:
 
 % sudo apt-get install kdelibs5-dev kdepimlibs5-dev
+
+For Fedora users, do this:
+
+# yum install kdelibs-devel kdepimlibs-devel kde-baseapps-devel antlr-C++
 
 Contacts...
 
